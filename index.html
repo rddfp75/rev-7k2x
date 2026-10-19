@@ -405,7 +405,7 @@ function renderInicio(a){
       <div class="bar"><i style="width:${dn/ITEMS.length*100}%"></i></div>
       <div class="row" style="justify-content:space-between"><span class="meta">${dn} de ${ITEMS.length} · ${inc} ${inc===1?"incidencia":"incidencias"} · desde las ${S.ini}</span></div>
       <button class="primary" onclick="ui.view='rev';render();window.scrollTo(0,0)">${S.fin?"Ver resultados":"Continuar"} →</button></div>`}
-  h+=`<span class="lbl">Salas</span><div class="salas">${Object.entries(SALAS).filter(([id])=>id!=="dacor"&&id!=="despiece").map(([id,z])=>`
+  h+=`<span class="lbl">Salas</span><div class="salas">${Object.entries(SALAS).map(([id,z])=>`
       <button class="sala" onclick="elegir('${id}')">${ICONOS[id]||""}<span class="t">${esc(z.titulo.split(" · ")[0])}</span>
         <span class="d">${esc(z.sub)} · ${z.items.length}</span>
         <span class="d" style="font-weight:400">${ult[id]?"Última: "+esc(ult[id]):"Sin revisiones"}</span></button>`).join("")}</div>
