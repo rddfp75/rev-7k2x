@@ -1,0 +1,7 @@
+Subir a GitHub Pages (gratis):
+1. En github.com crea un repositorio PUBLICO con un nombre poco evidente (ej. "rev-7k2x").
+2. "Add file > Upload files" y arrastra TODO el contenido de esta carpeta (los archivos, no la carpeta).
+3. Settings > Pages > Branch: main / (root) > Save.
+4. En 1-2 min la web queda en https://TU-USUARIO.github.io/rev-7k2x/
+Cada movil guarda sus datos y fotos en su propio navegador.
+Esta version NO incluye Despiece ni Dacor (planos originales de la empresa).
