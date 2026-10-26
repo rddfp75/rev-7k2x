@@ -364,7 +364,7 @@ function put(r){
   if(!isInc(r))limpiarFotos(code);else if(!r.pts)Object.keys(FOTOS).filter(k=>k.startsWith(code+"@")).forEach(borrarFoto)
   const libre=!!SALAS[SALA_ID].libre;const nx=libre?-1:nextPending(S.idx), d=done();
   const ft=isInc(r)?(FOTOS[code]?" · 📷 foto hecha":" · sin foto"):"";
-  ui.lastCode=isInc(r)?code:null;
+  ui.lastCode=isInc(r)?code:null;ui.lastLab="";
   ui.last=`<b>${esc(code)}: ${esc(txt(r))}</b>${ft}<br>Van ${d} de ${ITEMS.length}`+(libre?` · Faltan ${ITEMS.length-d}`:nx>=0?` · Siguiente: ${esc(ITEMS[nx][0])}${ITEMS[nx][1]?" · "+esc(ITEMS[nx][1]):""}`:" · ¡Todos apuntados!");
   if(nx>=0)S.idx=nx;
   ui.sel=false;ui.mat="";save();cancel();window.scrollTo(0,0);
