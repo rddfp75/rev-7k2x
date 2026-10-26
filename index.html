@@ -207,7 +207,7 @@ const nextPending=from=>{for(let k=1;k<=ITEMS.length;k++){const i=(from+k)%ITEMS
 const isInc=r=>r&&(r.t==="num"||(r.t==="ok"&&r.obs));
 const n=r=>!r||r.t==="notoca"||r.t==="noexiste"?"":r.t==="ok"?"0":r.many?"muchos":String(r.cnt);
 function fechaISO(){const [d,m,y]=S.fecha.split("/");return `${y}-${m.padStart(2,"0")}-${d.padStart(2,"0")}`}
-const nombreFoto=(c,slot=1)=>`${fechaISO()}_${SALA_CORTO}_${c.replace(/\s*·\s*/g,"-").replace(/[^\w-]/g,"")}-${slot}.jpg`;
+const nombreFoto=(c,slot=1)=>`${fechaISO()}_${SALA_CORTO}_${c.replace(/^OTRA@(\w+)$/,(m,id)=>"Otra"+((S.otras||[]).findIndex(o=>o.id===id)+1)).replace(/\s*·\s*/g,"-").replace(/[^\w-]/g,"")}-${slot}.jpg`;
 const k2=c=>c+"#2"; /* clave de la segunda foto */
 function fotosDe(c){const o=[];if(FOTOS[c])o.push({c,slot:1,url:FOTOS[c]});if(FOTOS[k2(c)])o.push({c,slot:2,url:FOTOS[k2(c)]});return o}
 function quitarFoto(c,slot){if(slot===1&&FOTOS[k2(c)]){guardarFoto(c,FOTOS[k2(c)]);borrarFoto(k2(c))}else borrarFoto(slot===2?k2(c):c);render()}
@@ -347,12 +347,17 @@ function buscarMat(){const norm=x=>String(x).toUpperCase().replace(/[^A-Z0-9]/g,
 function cancel(){ui={...ui,junto:"",mode:null,cnt:1,many:false,size:"",obs:"",otraTxt:"",otraJunto:""};render()}
 /* otras incidencias: sin matrícula (solo salas con otras:true); con flecha solo si se indica junto a qué están */
 const conOtras=()=>!!(SALAS[SALA_ID]&&SALAS[SALA_ID].otras);
-function guardarOtra(){const t=ui.otraTxt.trim();if(!t)return;S.otras=S.otras||[];S.otras.push({t,j:ui.otraJunto||""});
+function guardarOtra(){const t=ui.otraTxt.trim();if(!t)return;S.otras=S.otras||[];const oid=Date.now().toString(36);S.otras.push({t,j:ui.otraJunto||"",id:oid});
   ui.last=`<b>Otra incidencia: ${esc(t)}</b>${ui.otraJunto?" · junto a "+esc(ui.otraJunto):" · sin flecha"}<br>Van ${S.otras.length} ${S.otras.length===1?"otra":"otras"}`;
-  ui.lastCode=null;save();cancel();window.scrollTo(0,0)}
-function quitarOtra(i){S.otras.splice(i,1);save();render()}
-function otrasCard(){const o=S.otras||[];if(!o.length)return "";
-  return `<div class="card"><span class="lbl">Otras incidencias (${o.length})</span>${o.map((x,i)=>`<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span class="note" style="min-width:0">${esc(x.t)}${x.j?" · junto a "+esc(x.j):""}</span><button class="ghost" onclick="quitarOtra(${i})" aria-label="Quitar">✕</button></div>`).join("")}</div>`}
+  ui.lastCode="OTRA@"+oid;ui.lastLab="Otra: "+t;save();cancel();window.scrollTo(0,0)}
+function quitarOtra(i){const o=S.otras[i];if(o&&o.id){borrarFoto("OTRA@"+o.id);borrarFoto(k2("OTRA@"+o.id))}S.otras.splice(i,1);save();render()}
+function idsOtras(){(S.otras||[]).forEach((o,i)=>{if(!o.id)o.id="x"+i+Date.now().toString(36)})}
+function fotosOtras(){idsOtras();return (S.otras||[]).flatMap((o,i)=>fotosDe("OTRA@"+o.id).map(f=>({...f,lab:"Otra "+(i+1)+": "+o.t+(f.slot===2?" · foto 2":"")})))}
+function otrasCard(){const o=S.otras||[];if(!o.length)return "";idsOtras();
+  return `<div class="card"><span class="lbl">Otras incidencias (${o.length})</span>${o.map((x,i)=>{const k="OTRA@"+x.id;
+    return `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span class="note" style="min-width:0">${esc(x.t)}${x.j?" · junto a "+esc(x.j):""}</span><button class="ghost" onclick="quitarOtra(${i})" aria-label="Quitar">✕</button></div>`
+    +fotosDe(k).map(f=>`<div class="row"><img class="thumb" src="${f.url}" alt="Foto ${f.slot}"><button class="ghost" onclick="quitarFoto('${esc(k)}',${f.slot})">Quitar foto ${f.slot}</button></div>`).join("")
+    +(!FOTOS[k]?fotoBtn(k,"Foto de la otra "+(i+1)):(!FOTOS[k2(k)]?fotoBtn(k,"Segunda foto de la otra "+(i+1),2):""))}).join("")}</div>`}
 function put(r){
   const code=ITEMS[S.idx][0];
   if(CFG.dup&&CFG.dup[code]&&isInc(r)&&!r.lado){ui.rPend=r;ui.mode='lado';render();return}S.res[code]=r;
@@ -421,7 +426,7 @@ function renderFin(a){
     ``+(RAYA.length&&RAYATXT?"\n\n"+RAYATXT:"")+
     ((S.otras||[]).length?"\n\nOTRAS INCIDENCIAS:\n"+S.otras.map(o=>"- "+o.t+(o.j?" (junto a "+o.j+")":"")).join("\n"):"");
   const pend=ITEMS.filter(([c])=>!S.res[c]).length, sf=sinFoto();
-  const conFoto=inc.flatMap(([c])=>fotosItem(c));
+  const conFoto=inc.flatMap(([c])=>fotosItem(c)).concat(fotosOtras());
   a.innerHTML=`<button class="ghost" style="align-self:flex-start" onclick="ui.view='inicio';render()">← Inicio</button><div class="head"><h2>Fin · ${TITULO}</h2><span class="meta">${S.fecha} · ${S.ini}–${S.fin}</span></div>
     ${pend?`<div class="warnbox">Quedan ${pend} sin apuntar. <button class="ghost" onclick="reabrir()">Volver a la revisión</button></div>`:""}
     ${sf.length?`<div class="warnbox miss"><b>${sf.length} ${sf.length===1?"incidencia sin foto":"incidencias sin foto"}</b>
@@ -433,7 +438,7 @@ function renderFin(a){
     ${otrasCard()}
     <div class="head"><span class="lbl">Fotos de incidencias (${conFoto.length})</span></div>
     ${conFoto.length?`<div class="gal">${conFoto.map(p=>`<figure><img src="${p.url}" alt="Foto ${p.slot} de ${esc(p.c)}">
-        <figcaption><b>${esc(p.c)}</b><span>${esc(p.lab)}</span><span class="note">${esc(nombreFoto(p.c,p.slot))}</span></figcaption>
+        <figcaption><b>${esc(/^OTRA@/.test(p.c)?"Otra":p.c)}</b><span>${esc(p.lab)}</span><span class="note">${esc(nombreFoto(p.c,p.slot))}</span></figcaption>
         <button onclick="bajarUna('${esc(p.c)}',${p.slot},this)">Guardar foto</button></figure>`).join("")}</div>
       <button onclick="bajarZip(this)">Guardar todas (zip)</button>
       <span class="note">Cada foto lleva fecha, sala y matrícula en el nombre.</span>`
@@ -474,7 +479,7 @@ async function bajar(filename,data,b){const t=b.textContent;
   setTimeout(()=>b.textContent=t,2500)}
 function bajarUna(c,slot,b){bajar(nombreFoto(c,slot),dataToBlob(slot===2?FOTOS[k2(c)]:FOTOS[c]),b)}
 async function bajarZip(b){if(!window.JSZip){b.textContent="No se pudo preparar el zip";return}
-  const z=new JSZip();ITEMS.forEach(([c])=>{if(isInc(S.res[c]))fotosItem(c).forEach(p=>z.file(nombreFoto(p.c,p.slot),p.url.split(",")[1],{base64:true}))});
+  const z=new JSZip();ITEMS.forEach(([c])=>{if(isInc(S.res[c]))fotosItem(c).forEach(p=>z.file(nombreFoto(p.c,p.slot),p.url.split(",")[1],{base64:true}))});fotosOtras().forEach(p=>z.file(nombreFoto(p.c,p.slot),p.url.split(",")[1],{base64:true}));
   b.textContent="Preparando…";const blob=await z.generateAsync({type:"blob"});b.textContent="Guardar todas (zip)";
   bajar(`${fechaISO()}_${SALA_CORTO}_fotos.zip`,blob,b)}
 
@@ -719,7 +724,7 @@ async function genPlano(){
     return [{code:c,text:wa(txt(r,1)),at:d&&r.lado?d[r.lado]:undefined}]});
   // otras incidencias: recuadro azul a la derecha, debajo del listado; con flecha solo si se dijo junto a qué
   const otras=S.otras||[];
-  otras.forEach((o,i)=>{const a=o.j&&CFG.pos[o.j];if(a)notas.push({code:o.j,text:wa("Otra: "+o.t),at:[a[0],a[1]+6*notas.filter(n=>n.code===o.j).length]})});
+  otras.forEach((o,i)=>{const a=o.j&&CFG.pos[o.j];if(a)notas.push({code:o.j,text:wa(CFG.otrasBox?"Otra: "+o.t:"Otra "+(i+1)),at:[a[0],a[1]+6*notas.filter(n=>n.code===o.j).length]})});
   if(otras.length&&CFG.otrasBox){
     const B=CFG.otrasBox, maxW=B.w;
     const wrap=(t,fs)=>{const out=[];let cur="";for(const w of wa(t).split(/\s+/)){const nx=cur?cur+" "+w:w;
@@ -744,6 +749,19 @@ async function genPlano(){
     const hx=ex-ux*7, hy=ey-uy*7, px=-uy*3.5, py=ux*3.5;
     page.drawSvgPath(`M ${X(ex)} ${X(ey)} L ${X(hx+px)} ${X(hy+py)} L ${X(hx-px)} ${X(hy-py)} Z`,{x:0,y:H,color:rgb(...AZUL)});
   });
+  // páginas de otras incidencias: lista numerada con sus fotos debajo
+  {const k0=W/1190.55,mx=40*k0;let pgo=null,yo=0;const oi=S.otras||[];
+   const nuevaO=()=>{pgo=doc.addPage([W,H]);pgo.drawText(wa(`Otras incidencias · ${SALA} · ${S.fecha}`),{x:mx,y:H-50*k0,size:18*k0,font:F,color:rgb(0.12,0.16,0.2)});yo=H-85*k0};
+   for(let i=0;i<oi.length;i++){const o=oi[i],fo=fotosDe("OTRA@"+o.id);
+     const tx=wa(`${i+1}. ${o.t}${o.j?" (junto a "+o.j+")":""}`),lines=[];let cur="";
+     for(const w of tx.split(/\s+/)){const nx=cur?cur+" "+w:w;if(FR.widthOfTextAtSize(nx,14*k0)>W-2*mx&&cur){lines.push(cur);cur=w}else cur=nx}if(cur)lines.push(cur);
+     const th=lines.length*20*k0,ph=fo.length?260*k0:0;
+     if(!pgo||yo-(th+ph+30*k0)<40*k0)nuevaO();
+     lines.forEach((l,q)=>pgo.drawText(l,{x:mx,y:yo-14*k0-q*20*k0,size:14*k0,font:F,color:rgb(...AZUL)}));
+     yo-=th+8*k0;
+     if(fo.length){let xo=mx;for(const f of fo){const img=await doc.embedJpg(b64ToBytes(f.url)),sc=Math.min(460*k0/img.width,250*k0/img.height),iw=img.width*sc,ih=img.height*sc;
+       pgo.drawImage(img,{x:xo,y:yo-ih,width:iw,height:ih});xo+=iw+20*k0}yo-=ph}
+     yo-=24*k0}}
   // páginas de fotos (4 por hoja)
   const fotos=ITEMS.filter(([c])=>isInc(S.res[c])).flatMap(([c])=>fotosItem(c));
   const kk=W/1190.55;
