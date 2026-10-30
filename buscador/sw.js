@@ -1,4 +1,4 @@
-const V='buscador-v10';
+const V='buscador-v11';
 const FILES=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png',"p/blancos.jpg","p/china.jpg","p/dacor.jpg","p/despiece.jpg","p/export2.jpg","p/export3.jpg","p/pulido.jpg","p/rojos.jpg","p/sangrado.jpg","p/zl.jpg"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
