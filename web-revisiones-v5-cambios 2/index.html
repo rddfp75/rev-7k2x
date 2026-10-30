@@ -1,0 +1,857 @@
+<!doctype html><html><head><meta charset=utf8><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#1f4e6b"><meta name="mobile-web-app-capable" content="yes"><link rel="icon" href="icon-192.png"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Revisiones de limpieza</title><meta property="og:type" content="website"><meta property="og:title" content="Revisiones de limpieza"><meta property="og:description" content="Incidencias, fotos y planos desde el móvil"><meta property="og:image" content="https://rddfp75.github.io/rev-7k2x/preview.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://rddfp75.github.io/rev-7k2x/"><meta name="twitter:card" content="summary_large_image"></head><body>
+<title>Revisiones de Limpieza</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: una columna de mano, tarjeta del elemento arriba, botones grandes para dedo con guante abajo */
+:root{
+  --bg:#eef2f4; --surface:#ffffff; --fg:#14212b; --muted:#5d6e7a; --line:#d3dce2;
+  --steel:#1f4e6b; --ok:#1d7a4c; --warn:#c2410c; --blank:#7a8794; --blue:#1d4ed8;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f171d; --surface:#17232c; --fg:#e6edf1; --muted:#93a4b0; --line:#2a3a46;
+  --steel:#6fa8cc; --ok:#3fbf7f; --warn:#f08a4b; --blank:#8a97a3; --blue:#7aa2ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f171d; --surface:#17232c; --fg:#e6edf1; --muted:#93a4b0; --line:#2a3a46;
+  --steel:#6fa8cc; --ok:#3fbf7f; --warn:#f08a4b; --blank:#8a97a3; --blue:#7aa2ff; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 32px}
+.wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+h1,h2{font-family:var(--display);margin:0;letter-spacing:.01em}
+h1{font-size:28px} h2{font-size:22px}
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.meta{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+button{font-family:var(--body);font-size:17px;font-weight:600;border-radius:10px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--fg);min-height:54px;padding:8px 12px;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--steel);outline-offset:2px}
+button:active{transform:scale(.98)}
+.primary{background:var(--steel);border-color:var(--steel);color:var(--bg)}
+.okb{background:var(--ok);border-color:var(--ok);color:var(--bg);font-size:20px}
+.ghost{background:transparent;min-height:44px;font-size:15px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.code{font-family:var(--display);font-size:46px;line-height:1;color:var(--steel)}
+.name{font-size:19px;font-weight:500}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--steel)}
+.confirm{border-left:4px solid var(--ok);background:var(--surface);padding:10px 12px;border-radius:6px;font-size:15px}
+.confirm b{font-variant-numeric:tabular-nums}
+.panel{background:var(--surface);border:1.5px solid var(--steel);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:8px}
+.step button{width:54px;font-size:24px;padding:0}
+.num{font-family:var(--display);font-size:36px;min-width:64px;text-align:center;font-variant-numeric:tabular-nums}
+input[type=number],input[type=text],textarea{font:inherit;font-size:18px;border:1.5px solid var(--line);border-radius:10px;
+  padding:10px;background:var(--bg);color:var(--fg);width:100%;box-sizing:border-box}
+input[type=number]{width:90px}
+.seg{display:flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;border-radius:0;min-width:58px}
+.seg button[aria-pressed=true]{background:var(--steel);color:var(--bg)}
+.list{display:flex;flex-direction:column;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;overflow:hidden}
+.li{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;
+  border-radius:0;border-left:0;border-right:0;border-top:0;min-height:0;font-weight:500;font-size:15px}
+.li:last-child{border-bottom:0}
+.li span:first-child{min-width:0}
+.li .r{color:var(--muted);text-align:right;flex-shrink:0;max-width:55%}
+.li.inc .r{color:var(--blue);font-weight:600}
+.li.cur{background:var(--bg)}
+pre{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:12px;font-size:13px;white-space:pre-wrap;
+  word-break:break-word;margin:0;max-height:260px;overflow:auto;font-variant-numeric:tabular-nums}
+.note{font-size:14px;color:var(--muted)}
+.thumb{width:72px;height:72px;object-fit:cover;border-radius:8px;border:1.5px solid var(--line)}
+.tag{font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.warnbox{border-left:4px solid var(--warn);padding:8px 12px;background:var(--surface);border-radius:6px;font-size:14px}
+.fotobtn{display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:18px;border-radius:10px;
+  border:1.5px dashed var(--steel);color:var(--steel);background:var(--surface);min-height:54px;padding:8px 12px;cursor:pointer;text-align:center}
+.fotobtn input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.fotobtn:focus-within{outline:3px solid var(--steel);outline-offset:2px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.gal figure{margin:0;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.gal figcaption{padding:6px 8px;font-size:13px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.gal figcaption b{font-family:var(--display);font-size:17px;color:var(--steel)}
+.gal button{min-height:40px;font-size:14px;border-radius:0;border:0;border-top:1px solid var(--line)}
+.miss{display:flex;flex-direction:column;gap:8px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.avatar{width:42px;height:42px;min-height:0;padding:0;border-radius:50%;background:var(--steel);border-color:var(--steel);color:var(--bg);
+  font-family:var(--display);font-size:18px;letter-spacing:.03em}
+.hola{font-family:var(--display);font-size:34px;line-height:1.05;margin:0}
+.sub{margin:4px 0 0;color:var(--muted);font-size:16px}
+.encurso{border:2px solid var(--steel);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.pill{align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--steel);
+  border:1.5px solid var(--steel);border-radius:99px;padding:2px 10px}
+.salas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sala{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px;min-height:132px;border-radius:14px}
+.sala svg{width:30px;height:30px;color:var(--steel);margin-bottom:6px}
+.sala .t{font-family:var(--display);font-size:22px;line-height:1.05}
+.sala .d{font-size:13px;color:var(--muted);font-weight:500}
+.prox{display:flex;flex-wrap:wrap;gap:6px}
+.prox span{font-size:13px;color:var(--muted);border:1.5px dashed var(--line);border-radius:8px;padding:4px 10px}
+.aviso{border-left:4px solid var(--warn);background:var(--surface);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:10px}
+@media (prefers-reduced-motion:reduce){button:active{transform:none}}
+</style>
+
+<div class="wrap" id="app"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script>
+const SALAS={
+ china:{nombre:"Sala Empaquetado China · Envasado",corto:"China",titulo:"China · Envasado",
+   sub:"Envasado",nota:"34 elementos · formadora y paletizado van con raya (—)",otras:true,items:[
+["TRA504","Transportador cajas vacías"],["TBH514","Cinta subida BAS510"],["TBH515","Cinta subida BAS509"],
+["TBH536","Cinta subida BAS512"],["TBH537","Cinta subida BAS513"],["TRA511","Transportador cajas llenas (hacia paletizado)"],
+["BAS510","Báscula"],["BAS509","Báscula"],["BAS512","Báscula"],["BAS513","Báscula"],
+["VOL-503","Volteador 1"],["VOL-500","Volteador 2"],["U1","Útiles 1"],["U2","Útiles 2"],["U3","Útiles 3"],
+["SU1","Sumidero 1"],["SU2","Sumidero 2"],["L1 · ALC-500","Lavadora jumbos"],["SA1","Satélite"],["F1","Fuente de agua"],
+["PT1","Puerta rápida"],["PT2","Puerta cámara"],["PT3","Puerta salida"],["PT4","Puerta zona inferior"],
+["S1","Suelo zona líneas"],["S2","Suelo volteadores y pasillo"],["S3","Suelo lateral derecho"],["S4","Suelo lavadora jumbos"],
+["S5","Suelo zona inferior"],["P1","Pared izquierda"],["P2","Pared del fondo"],["P3","Pared derecha"],
+["P4","Tabique lavadora jumbos"],["PT9","Puerta tabique lavadora jumbos"]],raya:["FCB500","CF1","TRA510","PRE500","FLE500","ETQ500","DTM501","TRA103","PLA500","PLA501","S6","P5","P6","P7",
+"PT5","PT6","PT8","VE1","S7","P8","P9","P10","P11","PT7"],rayaTxt:"Formadora de cajas y paletizado: — (no se revisa a diario)"},
+ china2:{nombre:"Sala Empaquetado China · Formadora y paletizado",corto:"ChinaFormadora",titulo:"China · Formadora y paletizado",
+   sub:"Formadora y paletizado",nota:"24 elementos · envasado va con raya (—)",otras:true,items:[
+["FCB500","Formadora cajas y bolsas"],["CF1","Cinta formadora (s/m)"],["TRA510","Transportador"],["PRE500","Precintadora"],
+["FLE500","Flejadora"],["ETQ500","Etiquetadora"],["DTM501","Detector de metales"],["TRA103","Transportador"],
+["PLA500","Paletizador"],["PLA501","Paletizador"],["S6","Suelo formadora de cajas"],["P5","Pared de arriba formadora"],
+["P6","Pared izquierda formadora"],["P7","Pared derecha formadora (junto envasado)"],["PT5","Puerta salida sección"],
+["PT6","Puerta rápida formadora"],["PT8","Puerta formadora (arriba)"],["VE1","Ventana formadora–paletizado"],
+["S7","Suelo paletizado"],["P8","Pared izquierda paletizado"],["P9","Pared de abajo paletizado"],
+["P10","Pared derecha paletizado (junto envasado)"],["P11","Pared de arriba paletizado (ventana)"],["PT7","Puerta entrada sección (abajo)"]],
+   raya:["TRA504","TBH514","TBH515","TBH536","TBH537","TRA511","BAS510","BAS509","BAS512","BAS513","VOL-503","VOL-500",
+"U1","U2","U3","SU1","SU2","L1 · ALC-500","SA1","F1","PT1","PT2","PT3","PT4","S1","S2","S3","S4","S5","P1","P2","P3","P4","PT9"],
+   rayaTxt:"Envasado: — (no se revisa en esta revisión)"},
+ blancos:{nombre:"Sala Despojos Blancos",corto:"DespojosBlancos",titulo:"Despojos Blancos",
+   sub:"Vísceras blancas",nota:"38 elementos · vaciado de estómagos y clasificado",otras:true,items:[
+["C2","Cinta transportadora"],["FB1","Foso bombas"],["C3","Cinta tripas"],["M3","Mesas faenado"],["DT1","Destructor tripas"],
+["CT1","Calibradora tripas"],["T1","Tanques"],["CA1","Campana extractora"],["L2","Lavadora culares"],["CE2","Centrifugadora culares"],
+["M2","Mesa faenado culares"],["T2","Tanque culares"],["M4","Mesa tanque culares"],["L3","Lavadora tripas"],["T3","Batidora mucosa"],
+["RA1","Rampa entrada vísceras"],["M1","Mesa faenado estómagos"],["L1","Lavadora estómagos"],["C1","Cinta vaciado estómagos"],
+["CE1","Centrifugadora estómagos"],["SU1","Sumidero 1"],["SU2","Sumidero 2"],["SU3","Sumidero 3"],["SU4","Sumidero 4"],
+["LM1","Lavamanos 1"],["LM2","Lavamanos 2"],["S1","Suelo vaciado estómagos"],["S2","Suelo zona culares"],
+["S3","Suelo zona tanques/calibradora"],["S4","Suelo zona mesas y foso"],["S6","Suelo clasificado"],["P1","Pared izquierda"],
+["P3","Paredes vaciado estómagos"],["P4","Pared inferior"],["P5","Paredes clasificado"],["DM1","Detector de metales"],
+["S5","Suelo pasillo detector"],["P2","Pared del fondo"]],raya:[]},
+ limpia:{nombre:"Sala Sacrificio · Zona Limpia",corto:"ZonaLimpia",titulo:"Zona Limpia",
+   sub:"Sacrificio · puestos y línea",nota:"72 elementos · empieza en VLC-500 y FUM-500 va el último",otras:true,items:[["VLC-500","Volteador cerdos (entrada)"],["BF","Barra de freno"],["VÍA","Vía"],["CAN","Canaleta"],["SEX-500","Sexador de cerdos"],["PU-PEZ","Retirada pezuñas"],["PU4","Retirada testículos"],["FDI-500","Barrera de medición"],["TBM-516","Penes y testículos, transp. corte"],["FPC-500","Hueso puente"],["PU5","Retirada verga"],["FBO-500","Apertura pecho"],["ROBOT CULANAS","sin matrícula"],["TBM-517","Penes y testículos, transp. platos"],["CUL-501","Pistola manual de culares"],["TRE-501","Transportador evisceración"],["PU6","Repaso manual culanas"],["PU7","Sacar tripas"],["PU8","Sacar tripas"],["LVP-500","Lavadora bandejas"],["LVG-500","Lavadora ganchos"],["PU9","Sacar tripas"],["PU10","Precorte y sacar vísceras rojas"],["TVR-500",""],["PU11","Precorte y sacar vísceras rojas"],["TRT-500","Transportador de tripas"],["PU12","Precorte y sacar vísceras rojas"],["CAD-B","Cadena bandejas"],["CAD-G","Cadena ganchos"],["PU13","Sacar riñones"],["SFK-501","Máquina Autoline corte dorsal"],["SFK-502","Máquina corta cuellos"],["SFK-503","Sierra"],["SME-500","Corte espalda manual"],["SME-502","Corte espalda manual"],["PU14","Apertura de lomo 1"],["PU15","Repaso vísceras rojas"],["PU17-16","Inspección veterinaria"],["ESP-2","Espejo inspección veterinaria"],["PU18","Sacar muestras triquina"],["FNC-501","Desnucado manual"],["PU19","Retirar cordón solomillo"],["TRE-504","Transportador acumulación repulido"],["PU20","Repulido y reinspección"],["SME-501","Sierra manual de esquinado porcino"],["TRE-503","Transportador cambio evisc.–báscula"],["CC","Cámara consigna"],["PU21","Repulido y reinspección"],["POL-501","Polipasto repulido"],["PU41-40","Plataforma aguja rayada"],["PU22","Retirar diafragma"],["FLR-500","Extracción de mantecas"],["PU23","Extracción manual manteca"],["PU24","Perfilado manteca con perco"],["PU25","Perfilado manteca con perco"],["PU-NUEVO","Puesto nuevo (por identificar)"],["PU27","Aspirado manteca"],["TRE-502","Transportador báscula acumulación"],["VOL-400","Volteadora jumbos"],["PU28","Aspirado manteca"],["PU29","Retirar bragada"],["TRE-505","Transportador final de inspección"],["PU30","Separar papada izquierda"],["PU31","Separar papada derecha"],["PU-GANG","Quitar ganglios"],["PU34","Puesto inspección"],["PU32","Retirada bragada y pesaje"],["ESP-1","Espejo junto a PU32"],["BAS-504","Báscula aérea Bizerba robot FUM"],["PU33","Retirada bragada y pesaje"],["CTB-500","Cinta transportadora bragadas"],["FUM-500","Selladora"]],raya:[]},
+ sangrado:{nombre:"Sala Sacrificio · Sangrado",corto:"Sangrado",titulo:"Sangrado",
+   sub:"Sacrificio · zona sucia",nota:"70 elementos · desde el restrainer hasta las depiladoras",otras:true,items:[["XX3","Restrainer"],["VÍA","Vía"],["MBU-500","Mesa butina"],["POL-500","Polipasto mesa butina"],["SA2","Satélite (dcha.)"],["LM2","Lavamanos + disp. papel (dcha.)"],["SU14","Sumidero 14"],["S4","Suelo lado derecho del túnel"],["P4","Pared derecha"],["SU18","Sumidero 18"],["PT4","Puertas (entre TEC-500 y pared dcha.)"],["SU24","Sumidero 24"],["ELE-500","Elevador sobre mesa butina"],["SU13","Sumidero 13"],["TRG-502","Transp. retorno eslingas corto"],["SU5","Sumidero 5"],["F1","Fuente"],["SU6","Sumidero 6"],["TRG-501","Transp. retorno eslingas largo"],["SU12","Sumidero 12"],["IND-500","Indexer sangrado"],["ROT-500","Rotastick"],["SA1","Satélite (arriba)"],["LM1","Lavamanos + disp. papel (arriba)"],["ANI-500","Animark"],["P2","Pared junto al túnel (TEC-500)"],["SU11","Sumidero 11"],["S2","Suelo dentro del túnel (U)"],["TRS-500","Transportador sangrado"],["SU4","Sumidero 4"],["P1","Pared de arriba"],["SU10","Sumidero 10"],["IND-501","Indexer escaldado"],["S1","Suelo zona de arriba (sangrado)"],["SU3","Sumidero 3"],["TRG-503","Transp. túnel de condensación"],["SU9","Sumidero 9"],["SU2","Sumidero 2"],["PRL-500","Prelavadora"],["SU8","Sumidero 8"],["S5","Suelo lado izquierdo (prelavadora)"],["SU7","Sumidero 7"],["SU1","Sumidero 1"],["PT5","Puerta almacén mantenimiento"],["TEC-500","Túnel escaldado por condensación"],["SU23","Sumidero 23"],["SU17","Sumidero 17"],["SU22","Sumidero 22"],["SU16","Sumidero 16"],["SA3","Satélite (abajo)"],["LM3","Lavamanos + disp. papel (abajo)"],["PT1","Puerta sala sangre"],["DES-500","Descolgador"],["SU20","Sumidero 20"],["DPT-500","Depiladora Tarzan I"],["SU15","Sumidero 15"],["DPT-501","Depiladora Tarzan II"],["SU19","Sumidero 19"],["PT6","Puerta hacia Pulido (pared izq.)"],["GBD-500","Grupo bombas depiladora"],["PT3","Puertas hacia Pulido (almacén)"],["LM4","Lavamanos + disp. papel (almacén)"],["GBD-501","Grupo bombas depiladora"],["GBD-502","Grupo bombas depiladora"],["BFP-500","Bomba foso peladora"],["BAN-500","Bomba antiespumante"],["S3","Suelo zona de abajo (bombas)"],["SU21","Sumidero 21"],["PT2","Puerta almacén camales"],["SU25","Sumidero 25 (almacén de camales)"],["P3","Pared de abajo"]],raya:[]},
+ pulido:{nombre:"Sala Sacrificio · Pulido",corto:"Pulido",titulo:"Pulido",
+   sub:"Sacrificio · zona sucia",nota:"41 elementos · desde la mesa de camales hasta zona limpia",otras:true,items:[["TOBOGÁN","De la peladora a la mesa de camales (sin matrícula)"],["VÍA","Vía"],["CAN","Canaleta"],["PT6","Puerta a zona sucia"],["SA1","Satélite (junto a zona sucia)"],["MPV-500","Mesa extensión con pala volcadora"],["SU1","Sumidero 1 (mesa de camales)"],["XX1","Polipasto sobre mesa de extensión"],["PT7","Puerta almacén camales"],["ELE-501","Elevador sobre mesa de camales"],["AUT-500","Autofom"],["S1","Suelo lado puertas (mesa camales)"],["LM3","Lavamanos y dispensador papel (oficina mant.)"],["PT8","Puerta oficina mantenimiento"],["PT5","Puerta almacén mantenimiento"],["TRC-503","Transp. retorno camales descenso"],["P2","Pared derecha (zona sucia / almacén)"],["XX2","Polipasto presecadora"],["LM2","Lavamanos y dispensador papel (pta. rápida)"],["PT3","Puerta rápida"],["LAV-507","Lavasuelas (vado taller mantenimiento)"],["PT4","Puerta taller mantenimiento"],["PT2","Puerta salida producción"],["IND-502","Indexer máquinas"],["PASARELA","Pasarela (tramo de línea IND-502 a ELE-501)"],["PRS-500","Presecadora"],["HCS-500","Horno chamuscado Spitfire I"],["PT1","Puerta entrada producción"],["PUL-500","Pulidora"],["LM1","Lavamanos y dispensador papel (izq.)"],["PUS-500","Pulidora / secadora"],["P1","Pared superior (puertas)"],["HCS-501","Horno chamuscado Spitfire II"],["P4","Pared izquierda (salida zona limpia)"],["PT9","Puerta a zona limpia (arriba)"],["TRG-504","Trasportador máquinas chamuscado"],["ESCALERAS","Escaleras plataforma lavadora"],["TRC-502","Transp. retorno camales limpios"],["S2","Suelo lado retorno camales"],["P3","Pared inferior"],["LVC-500","Lavadora de camales"],["SA2","Satélite (plataforma lavadora)"],["PT10","Puerta a zona limpia (abajo)"]],raya:[]},
+ rojos:{nombre:"Sala Despojos Rojos",corto:"DespojosRojos",titulo:"Despojos Rojos",
+   sub:"Vísceras rojas",nota:"71 elementos · planta baja y plataforma de faenado",otras:true,items:[["RG1","Entrada ganchos"],["CA1","Canaleta entrada"],["BA1","Bandejas salida"],["E1","Embudo 1 (Taifun)"],["E2","Embudo 2 (Tráquea)"],["E3","Embudo 3 (Garganta)"],["E4","Embudo 4 (Riñón)"],["E5","Embudo 5 (Gañote)"],["E6","Embudo 6 (Pulmón)"],["E7","Embudo 7 (Diafragma)"],["E8","Embudo 8 (Lengua)"],["E9","Embudo 9 (Corazón)"],["E10","Embudo 10 (Molleja)"],["E11","Embudo 11 (Hígado)"],["E12","Embudo 12 (Vesícula)"],["E13","Embudo 13 (Aorta)"],["E14","Embudo 14 (Esófago)"],["X1","Extractor 1"],["X2","Extractor 2"],["X3","Extractor 3"],["X4","Extractor 4"],["X5","Extractor 5"],["X6","Extractor 6"],["X7","Extractor 7"],["X8","Extractor 8"],["X9","Extractor 9"],["X10","Extractor 10"],["CU1","Cuchillero nº 39"],["CU2","Cuchillero nº 38"],["CU3","Cuchillero nº 37"],["CU4","Cuchillero nº 36"],["CU5","Cuchillero nº 35"],["AF1","Afilador 1"],["AF2","Afilador 2"],["AF3","Afilador 3"],["AF4","Afilador 4"],["AF5","Afilador 5"],["ES1","Escalera plataforma"],["CEN-501","Centrifugadora 1"],["CEN-500","Centrifugadora 2"],["M1","Mesa 1"],["M2","Mesa 2"],["M3","Mesa 3"],["M4","Mesa 4"],["M5","Mesa (junto centrifugadoras)"],["TF1","Taifun"],["CP1","Congelador placas 1"],["CP2","Congelador placas 2"],["CP3","Congelador placas 3"],["CP4","Congelador placas 4"],["TC1","Tubos congelador 1"],["TC2","Tubos congelador 2"],["TC3","Tubos congelador 3"],["TC4","Tubos congelador 4"],["PT3","Puerta entrada (fondo)"],["PT4","Puerta inferior izq."],["PT5","Puerta inferior dcha."],["SU1","Sumidero 1"],["SU2","Sumidero 2"],["SU3","Sumidero 3"],["SU4","Sumidero 4"],["LM1","Lavamanos"],["SA1","Satélite"],["S1","Suelo plataforma"],["S2","Suelo bajo plataforma"],["S3","Suelo zona congeladores"],["S4","Suelo zona derecha"],["P1","Pared izquierda"],["P2","Pared del fondo"],["P3","Pared derecha"],["P4","Pared inferior"]],raya:[]},
+ dacor:{nombre:"Sala Dacor",corto:"Dacor",titulo:"Dacor",
+   sub:"Tú dictas la matrícula",nota:"63 matrículas · tú dictas la matrícula",libre:true,otras:true,items:[["DAC01",""],["DAC02",""],["DAC03",""],["DAC04",""],["DAC05",""],["DAC06",""],["DAC07",""],["DAC08",""],["DAC09",""],["DAC10",""],["DAC11",""],["DAC12",""],["DAC12B",""],["DAC13",""],["DAC14",""],["DAC15",""],["DAC16",""],["DAC17",""],["DAC18",""],["DAC19",""],["DAC20",""],["DAC21",""],["DAC22",""],["DAC23",""],["DAC24",""],["DAC25",""],["DAC26",""],["DAC27",""],["DAC30",""],["DAC31",""],["DAC32",""],["DAC33",""],["DAC34",""],["DAC35",""],["DAC36",""],["DAC37",""],["DAC38",""],["DAC39",""],["BAS036",""],["BAS129",""],["BAS130",""],["BAS131",""],["BAS271",""],["BAS402",""],["DEC115",""],["DEC116",""],["DEC117",""],["DEC118",""],["DEC119",""],["DEC120",""],["DEC121",""],["DEC122",""],["DEV109",""],["DEV110",""],["DEV112",""],["DEV200",""],["DTM103",""],["DTM104",""],["SCM102",""],["SCM200",""],["TBM160",""],["VOL101",""],["VOL102",""]],raya:[]},
+ despiece:{nombre:"Sala Despiece",corto:"Despiece",titulo:"Despiece",
+   sub:"Cintas activas",nota:"36 cintas activas",otras:true,items:[["TBM 172","DESHUESE PALETAS A. Después de la descortezadora"],["TBM 175","DESHUESE PALETAS B. Después de la descortezadora"],["TBL 109","PANCETAS A. 2º tramo (después de la descortezadora)"],["TBL 102","PANCETAS B. 3º tramo (después de la descortezadora)"],["TFD 105","DESHUESE PALETAS A. Antes / después de la descortezadora"],["TFI 105","DESHUESE PALETAS B. Antes / después de la descortezadora"],["TCI 106","LOMO B. 3er tramo"],["TCD 106","LOMO A. 3er tramo"],["BAS 125","BÁSCULA SALIDA LOMOS DERECHA"],["BAS 124","BÁSCULA SALIDA LOMOS IZQUIERDA"],["FCD 106","LOMO A. 1º tramo"],["TVD 106 (final)","TRANSP baldes vacíos derecha"],["TVI 106 (final)","Trans baldes vacíos izquierda"],["TED 106","Trans espinazo derecha"],["TEE 106","Trans evacuación de espinazos"],["FCI 106","LOMOS B. 1º tramo"],["TEI 106","Trans espinazo izquierda"],["TAC 106","TRANS ESPINAZO COSTILLAMATIC"],["TTG 106","TEMPANOS"],["TFI 106","CHULETEROS B. 1º tramo"],["TTI 106","TRANSP tempanos línea izquierda"],["TBM 102","Transportador abastecimiento líneas"],["TBM 101","Transportador"],["BAS 123","BÁSCULA IND 560 punto id chuleteros"],["TVA 106","TRANSP baldes vacíos abastecimiento"],["TFD 106","CHULETEROS A. 1º tramo"],["TTD 106","TRANSP tempanos línea derecha"],["TVD 106 (principio)","TRANSP baldes vacíos derecha"],["TVI 106 (principio)","Trans baldes vacíos izquierda"],["TFC 106","Trans faenado costilla"],["TLT 106","Trans baldes llenos tempanos costillas"],["TFT 106","TOCINO LOMO"],["TLP 106","Trans baldes llenos principal"],["TES 100","SOLOMILLO"],["TSP 100","TRANSP subida papadas"],["TBL 127","CAIDA CANALES"]],raya:[]},
+ exp2:{nombre:"Sala Exportación 2 · Líneas 8 y 9",corto:"Exportacion2",titulo:"Exportación 2",
+   sub:"Líneas 8 y 9",nota:"46 elementos · líneas 8 y 9",otras:true,items:[["VOL208","Volteador izquierdo"],["VOL209","Volteador derecho"],["TBM534","Cinta salida VOL208"],["CR1","Camino de rodillos (s/m)"],
+["TBM535","Cinta salida VOL209"],["C2","Cinta blanca (s/m)"],["BAS-1","Báscula 1 (s/m)"],["BAS-2","Báscula 2 (s/m)"],["BAS-3","Báscula 3 (s/m)"],
+["TBM521","Cinta de la ventana"],["TBM523","Cinta (desde rodillos)"],["TBM520","Cinta"],["TBM522","Cinta entrada precintadora"],
+["PRE","Precintadora (s/m)"],["DTM242","Detector de metales"],["M1","Mesa 1 (L9)"],["M2","Mesa 2 (L9)"],["M3","Mesa 3 (L9)"],["M4","Mesa 4 (L9)"],
+["TBM527","Cinta (L9)"],["PER-1","Perco izquierdo (L9, s/m)"],["PER-2","Perco derecho (L9, s/m)"],["DEC-104","Descortezadora (L9)"],
+["M5","Mesa tras descortezadora (L9)"],["M6","Mesa plataforma (L8)"],["M7","Mesa junto precintadora"],
+["S1","Suelo tramex plataforma izq."],["S2","Suelo tramex plataforma centro"],["S3","Suelo tramex plataforma dcha."],
+["PE1","Peldaño tramex izq."],["PE2","Peldaño tramex centro"],["PE3","Peldaño tramex dcha."],
+["SU1","Sumidero 1"],["SU2","Sumidero plataforma"],["SU3","Sumidero suelo (volteadores)"],["LM1","Lavamanos + dispensador papel"],
+["U1","Útiles"],["PSM058","Prensa"],["MQ1","Máquina sin matrícula (por identificar)"],["PT1","Puerta 180"],
+["VP1","Ventana paso producto (cortinas amarillas)"],["VP2","Ventana paso producto"],["VP3","Ventana paso producto (sin cortinas)"],
+["PT3","Puerta entrada"],["PT4","Puerta montacargas"],["PT5","Puerta pared derecha"]],raya:[]}
+};
+let SALA_ID,SALA,SALA_CORTO,TITULO,ITEMS,RAYA,RAYATXT,CFG;
+function setSala(id){const z=SALAS[id]||SALAS.china;SALA_ID=SALAS[id]?id:"china";SALA=z.nombre;SALA_CORTO=z.corto;TITULO=z.titulo;
+  ITEMS=z.items;RAYA=z.raya;RAYATXT=z.rayaTxt||"";CFG=PLANOS[SALA_ID]}
+const KEY="rev-china-v1";
+let S=load()||null, ui={mode:null,cnt:1,many:false,size:"",unit:"mm",obs:"",otraTxt:"",otraJunto:"",last:"",lastCode:null,view:"inicio",nombreEdit:false,pend:null};
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+let NOMBRE=lsGet("rev-nombre")||"";
+const iniciales=n=>n.trim().split(/\s+/).slice(0,2).map(p=>p[0]||"").join("").toUpperCase();
+function ultimas(){try{return JSON.parse(lsGet("rev-ultimas")||"{}")}catch(e){return {}}}
+const ICONOS={
+ china:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/></svg>',
+ china2:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16v11H4zM4 9l3-5h10l3 5M12 9v11"/></svg>',
+ blancos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3c4 4.5 6 7.5 6 10.5a6 6 0 0 1-12 0C6 10.500 8 7.500 12 3z"/></svg>',
+ limpia:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg>',
+ sangrado:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 7h14a2 2 0 0 1 0 4H6a2 2 0 0 0 0 4h14M4 19h16"/></svg>',
+ pulido:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l2 5 5 .7-3.700 3.600.9 5.200L12 15l-4.500 2.500.9-5.200L4.700 8.700 10 8z"/></svg>',
+ rojos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.400-7 10-7 10z"/></svg>',
+ dacor:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 7v10M12 7v10M17 7v10M5 20h14"/></svg>',
+ despiece:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 9h18v6H3zM7 9v6M12 9v6M17 9v6M5 19h14"/></svg>',
+ exp2:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M2 6h11v10H2zM13 9h4.5L21 12.5V16h-8z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>'};
+const PROXIMAMENTE=[];
+let FOTOS={}; // code -> dataURL (copia en memoria de IndexedDB)
+let DL=null;
+
+/* ---------- almacenamiento ---------- */
+function load(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function idb(){return new Promise((ok,ko)=>{try{const r=indexedDB.open("rev-fotos",1);
+  r.onupgradeneeded=()=>r.result.createObjectStore("f");r.onsuccess=()=>ok(r.result);r.onerror=()=>ko(r.error)}catch(e){ko(e)}})}
+async function idbDo(mode,fn){try{const db=await idb();return await new Promise((ok,ko)=>{const t=db.transaction("f",mode);
+  const st=t.objectStore("f");const out=fn(st);t.oncomplete=()=>ok(out&&out.result);t.onerror=()=>ko(t.error)})}catch(e){return null}}
+async function cargarFotos(){FOTOS={};await idbDo("readonly",st=>{const c=st.openCursor();
+  c.onsuccess=()=>{const cur=c.result;if(cur){FOTOS[cur.key]=cur.value;cur.continue()}};return null})}
+function guardarFoto(code,url){FOTOS[code]=url;idbDo("readwrite",st=>st.put(url,code))}
+function borrarFoto(code){delete FOTOS[code];idbDo("readwrite",st=>st.delete(code))}
+function borrarTodas(){FOTOS={};idbDo("readwrite",st=>st.clear())}
+
+/* ---------- utilidades ---------- */
+const hhmm=d=>d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const done=()=>ITEMS.filter(([c])=>S.res[c]).length;
+const nextPending=from=>{for(let k=1;k<=ITEMS.length;k++){const i=(from+k)%ITEMS.length;if(!S.res[ITEMS[i][0]])return i}return -1};
+const isInc=r=>r&&(r.t==="num"||(r.t==="ok"&&r.obs));
+const n=r=>!r||r.t==="notoca"||r.t==="noexiste"?"":r.t==="ok"?"0":r.many?"muchos":String(r.cnt);
+function fechaISO(){const [d,m,y]=S.fecha.split("/");return `${y}-${m.padStart(2,"0")}-${d.padStart(2,"0")}`}
+const nombreFoto=(c,slot=1)=>`${fechaISO()}_${SALA_CORTO}_${c.replace(/^OTRA@(\w+)$/,(m,id)=>"Otra"+((S.otras||[]).findIndex(o=>o.id===id)+1)).replace(/\s*·\s*/g,"-").replace(/[^\w-]/g,"")}-${slot}.jpg`;
+const k2=c=>c+"#2"; /* clave de la segunda foto */
+function fotosDe(c){const o=[];if(FOTOS[c])o.push({c,slot:1,url:FOTOS[c]});if(FOTOS[k2(c)])o.push({c,slot:2,url:FOTOS[k2(c)]});return o}
+function quitarFoto(c,slot){if(slot===1&&FOTOS[k2(c)]){guardarFoto(c,FOTOS[k2(c)]);borrarFoto(k2(c))}else borrarFoto(slot===2?k2(c):c);render()}
+const nombreDe=c=>(ITEMS.find(x=>x[0]===c)||["",""])[1];
+const LINEAS={limpia:["BF","VÍA","CAN"],sangrado:["VÍA"],pulido:["VÍA","CAN"]};
+const LINEA=()=>LINEAS[SALA_ID]||[];
+const esLinea=c=>LINEA().includes(c);
+const ptxt=p=>(p.many?"muchos restos":(p.cnt===1?"1 resto":p.cnt+" restos"))+(p.size?` de ~${p.size} ${p.unit}`:"")+(p.obs?" · "+p.obs:"")+(p.j?" junto a "+p.j:"");
+function putPunto(r){const code=ITEMS[S.idx][0],prev=S.res[code],pts=(prev&&prev.pts)?prev.pts.slice():[];
+  pts.push({id:Date.now().toString(36),cnt:r.cnt,many:r.many,size:r.size,unit:r.unit,obs:r.obs,j:ui.junto||""});
+  S.res[code]={t:"num",cnt:pts.reduce((a,p)=>a+(p.many?0:p.cnt),0),many:pts.some(p=>p.many),size:"",unit:"mm",obs:"",pts};
+  ui.last=`<b>${esc(code)}: ${esc(ptxt(pts[pts.length-1]))}</b><br>Van ${pts.length} ${pts.length===1?"punto":"puntos"} en ${esc(code)} · pulsa Restos para añadir otro, o Saltar →`;
+  ui.lastCode=pkey(code,pts[pts.length-1]);ui.lastLab=labDe(ui.lastCode);ui.junto="";save();cancel();window.scrollTo(0,0)}
+function quitarPunto(i){const c=ITEMS[S.idx][0],r=S.res[c];if(!r||!r.pts)return;const gone=r.pts.splice(i,1)[0];
+  if(!r.pts.length)delete S.res[c];else{r.cnt=r.pts.reduce((a,p)=>a+(p.many?0:p.cnt),0);r.many=r.pts.some(p=>p.many)}
+  if(!S.res[c])limpiarFotos(c);else{borrarFoto(pkey(c,gone));borrarFoto(k2(pkey(c,gone)))}
+  save();render()}
+function txt(r,code){
+  if(!r)return "";
+  if(r.t==="notoca")return "no toca";
+  if(r.t==="noexiste")return "no existe";
+  if(r.pts)return r.pts.map(ptxt).join(" · ");
+  let s=r.t==="ok"?"0":(r.many?"muchos restos":(r.cnt===1?"1 resto":r.cnt+" restos"))+(r.size?` de ~${r.size} ${r.unit}`:"");
+  if(r.obs)s+=" · "+r.obs;
+  if(r.lado&&!code)s+=" · "+(r.lado==="izq"?"izquierda":"derecha")+" del plano";
+  return s;
+}
+const NOMLIN={"BF":"Barra de freno","VÍA":"Vía","CAN":"Canaleta"};
+function cercano(pl,q){let b=null,bd=1e9;for(let i=0;i<pl.length-1;i++){const [x1,y1]=pl[i],[x2,y2]=pl[i+1],dx=x2-x1,dy=y2-y1,l=dx*dx+dy*dy||1,t=Math.max(0,Math.min(1,((q[0]-x1)*dx+(q[1]-y1)*dy)/l)),x=x1+t*dx,y=y1+t*dy,d=Math.hypot(q[0]-x,q[1]-y);if(d<bd){bd=d;b=[x,y]}}return b}
+const pkey=(c,p)=>c+"@"+p.id;
+function labDe(key){const [c,id]=key.split("@"),r=S.res[c];if(id&&r&&r.pts){const i=r.pts.findIndex(p=>p.id===id);return c+" · "+(i<0?"":ptxt(r.pts[i]))}return c+" · "+(r?txt(r):"")}
+function clavesFoto(c){const r=S.res[c];return r&&r.pts?r.pts.map(p=>pkey(c,p)):[c]}
+function fotosItem(c){return clavesFoto(c).flatMap(k=>fotosDe(k).map(f=>({...f,lab:labDe(k)+(f.slot===2?" · foto 2":"")})))}
+function limpiarFotos(c){Object.keys(FOTOS).filter(k=>k===c||k===k2(c)||k.startsWith(c+"@")).forEach(borrarFoto)}
+const sinFoto=()=>ITEMS.filter(([c])=>isInc(S.res[c])).flatMap(([c])=>clavesFoto(c)).filter(k=>!FOTOS[k]);
+
+/* foto: reduce a 1280 px y JPEG para no llenar el móvil */
+function leerFoto(file){return new Promise((ok,ko)=>{const fr=new FileReader();fr.onerror=ko;fr.onload=()=>{const im=new Image();
+  im.onerror=()=>ok(fr.result);im.onload=()=>{const k=Math.min(1,1280/Math.max(im.width,im.height));
+  const cv=document.createElement("canvas");cv.width=Math.round(im.width*k);cv.height=Math.round(im.height*k);
+  cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);ok(cv.toDataURL("image/jpeg",0.7))};im.src=fr.result};fr.readAsDataURL(file)})}
+function fotoBtn(code,label,slot=1){const id="f_"+code.replace(/[^\w]/g,"")+(slot===2?"_b":"");
+  return `<label class="fotobtn" for="${id}">📷 ${esc(label)}<input id="${id}" type="file" accept="image/*" capture="environment" onchange="ponerFoto('${esc(code)}',this,${slot})"></label>`}
+async function ponerFoto(code,inp,slot=1){const f=inp.files[0];if(!f)return;const url=await leerFoto(f);guardarFoto(slot===2?k2(code):code,url);
+  if(slot!==2&&ui.lastCode===code)ui.last=ui.last.replace(" · sin foto"," · 📷 foto hecha");render()}
+
+/* ---------- pantallas ---------- */
+function elegir(id){if(S&&!S.fin){ui.pend=id;render();window.scrollTo(0,0);return}start(id)}
+function start(id){ui.sel=false;ui.mat="";ui.pend=null;ui.view="rev";ui.mode=null;ui.otraTxt="";ui.otraJunto="";setSala(id);const d=new Date();S={sala:SALA_ID,nombre:NOMBRE,fecha:d.toLocaleDateString("es-ES"),ini:hhmm(d),fin:null,idx:0,res:{},otras:[],list:false};borrarTodas();save();render()}
+
+function render(){
+  const a=document.getElementById("app");
+  if(!NOMBRE||ui.nombreEdit){renderNombre(a);return}
+  if(!S||ui.view==="inicio"){renderInicio(a);return}
+  if(S.fin){renderFin(a);return}
+  const [code,name]=ITEMS[S.idx], r=S.res[code], d=done();
+  let h=`<button class="ghost" style="align-self:flex-start" onclick="ui.view='inicio';render()">← Inicio</button><div class="head"><h2>${TITULO}</h2><span class="meta">${S.fecha} · ${S.ini}</span></div>
+  <div class="bar"><i style="width:${d/ITEMS.length*100}%"></i></div>
+  <div class="meta">${d} de ${ITEMS.length} apuntados</div>`;
+  if(ui.last){h+=`<div class="confirm">${ui.last}</div>`;
+    if(ui.lastCode&&!FOTOS[ui.lastCode]&&!ui.mode)h+=fotoBtn(ui.lastCode,"Foto de "+(ui.lastLab||ui.lastCode));
+    if(ui.lastCode&&FOTOS[ui.lastCode]&&!FOTOS[k2(ui.lastCode)]&&!ui.mode)h+=fotoBtn(ui.lastCode,"Segunda foto de "+(ui.lastLab||ui.lastCode),2)}
+  const libre=!!SALAS[SALA_ID].libre, oculto=libre&&!ui.sel;
+  if(libre)h+=`<div class="card"><span class="lbl">Matrícula que dictas</span>
+    <div class="row"><input id="mat" type="text" autocapitalize="characters" autocomplete="off" placeholder="Ej.: DAC12" value="${esc(ui.mat||"")}" oninput="ui.mat=this.value" onkeydown="if(event.key==='Enter')buscarMat()">
+    <button class="primary" onclick="buscarMat()">Ir</button></div></div>`;
+  if(!oculto){
+  h+=`<div class="card"><span class="lbl">Elemento ${S.idx+1} de ${ITEMS.length}</span>
+    <div class="code">${esc(code)}</div><div class="name">${esc(name||"sin nombre en el plano")}</div>
+    ${r?`<span class="note">Apuntado: <b>${esc(txt(r))}</b> · puedes cambiarlo</span>`:""}
+    ${r&&r.pts?r.pts.map((p,i)=>`<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span class="note" style="min-width:0">${i+1}. ${esc(ptxt(p))}</span><button class="ghost" onclick="quitarPunto(${i})" aria-label="Quitar punto">✕</button></div>${fotosDe(pkey(code,p)).map(f=>`<div class="row"><img class="thumb" src="${f.url}" alt="Foto ${f.slot}"><button class="ghost" onclick="quitarFoto('${esc(pkey(code,p))}',${f.slot})">Quitar foto ${f.slot}</button></div>`).join("")}${!FOTOS[pkey(code,p)]?fotoBtn(pkey(code,p),"Foto del punto "+(i+1)):(!FOTOS[k2(pkey(code,p))]?fotoBtn(pkey(code,p),"Segunda foto del punto "+(i+1),2):"")}`).join(""):""}
+    ${isInc(r)&&!r.pts?fotosDe(code).map(p=>`<div class="row"><img class="thumb" src="${p.url}" alt="Foto ${p.slot} de ${esc(code)}"><button class="ghost" onclick="quitarFoto('${esc(code)}',${p.slot})">Quitar foto ${p.slot}</button></div>`).join(""):""}
+    </div>`;
+  if(isInc(r)&&!r.pts&&!FOTOS[code]&&ui.lastCode!==code&&!ui.mode)h+=fotoBtn(code,"Añadir foto a "+code);
+  if(isInc(r)&&!r.pts&&FOTOS[code]&&!FOTOS[k2(code)]&&ui.lastCode!==code&&!ui.mode)h+=fotoBtn(code,"Añadir segunda foto a "+code,2);
+  if(!ui.mode){h+=`
+    <button class="okb" onclick="put({t:'ok'})">0 · Limpio</button>
+    <div class="grid2"><button onclick="ui.mode='num';render()">Restos</button>
+      <button onclick="ui.mode='obs';render()">Observación</button>
+      <button onclick="put({t:'notoca'})">No toca</button>
+      <button onclick="put({t:'noexiste'})">No existe</button></div>
+    ${conOtras()?`<button onclick="ui.mode='otra';render()">Otra incidencia (sin matrícula)</button>`:""}
+    <div class="grid2"><button class="ghost" onclick="go(-1)">← Anterior</button>
+      <button class="ghost" onclick="go(1)">Saltar →</button></div>`}
+  else h+=panel();
+  }
+  h+=otrasCard();
+  h+=`<div class="grid2"><button class="ghost" onclick="S.list=!S.list;save();render()">${S.list?"Ocultar lista":"Ver lista"}</button>
+      <button class="ghost" onclick="faltan()">Las que faltan</button></div>`;
+  if(S.list)h+=`<div class="list">${ITEMS.map(([c,nm],i)=>{const rr=S.res[c];
+      const ft=isInc(rr)?(FOTOS[c]?" · 📷":" · sin foto"):"";
+      return `<button class="li ${isInc(rr)?"inc":""} ${i===S.idx?"cur":""}" onclick="jump(${i})"><span>${esc(c)}${nm?" · "+esc(nm):""}</span><span class="r">${rr?esc(txt(rr))+ft:"pendiente"}</span></button>`}).join("")}</div>`;
+  h+=`<button class="primary" onclick="fin()">Fin de revisión</button>`;
+  a.innerHTML=h;
+}
+
+function panel(){
+  if(ui.mode==="lado")return `<div class="panel"><span class="lbl">${esc(ITEMS[S.idx][0])} sale dos veces en el plano. ¿En cuál?</span>
+    <div class="grid2"><button onclick="put({...ui.rPend,lado:'izq'})">Izquierda del plano</button>
+    <button onclick="put({...ui.rPend,lado:'der'})">Derecha del plano</button></div>
+    <button class="ghost" onclick="cancel()">Cancelar</button></div>`;
+  if(ui.mode==="otra")return `<div class="panel"><span class="lbl">Otra incidencia (sin matrícula)</span>
+    <textarea id="otra" rows="2" placeholder="Ej.: mesa sucia (puedes dictar con el micro del teclado)" oninput="ui.otraTxt=this.value">${esc(ui.otraTxt)}</textarea>
+    <label class="lbl" for="otraj">Junto a (para la flecha, opcional)</label>
+    <select id="otraj" onchange="ui.otraJunto=this.value" style="font:inherit;font-size:17px;padding:10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);width:100%">
+      <option value="">Sin flecha</option>${ITEMS.map(([c,nm])=>`<option value="${esc(c)}"${ui.otraJunto===c?" selected":""}>${esc(c)}${nm?" · "+esc(nm):""}</option>`).join("")}</select>
+    <div class="grid2"><button class="ghost" onclick="cancel()">Cancelar</button>
+    <button class="primary" onclick="guardarOtra()">Guardar</button></div></div>`;
+  if(ui.mode==="obs")return `<div class="panel"><span class="lbl">Observación sin restos</span>
+    <textarea id="obs" rows="2" placeholder="Ej.: estructura sucia (puedes dictar con el micro del teclado)" oninput="ui.obs=this.value">${esc(ui.obs)}</textarea>
+    <div class="grid2"><button class="ghost" onclick="cancel()">Cancelar</button>
+    <button class="primary" onclick="ui.obs.trim()?put({t:'ok',obs:ui.obs.trim()}):0">Guardar</button></div></div>`;
+  return `<div class="panel"><span class="lbl">Restos</span>
+    <div class="row"><div class="step"><button onclick="ui.many=false;ui.cnt=Math.max(1,ui.cnt-1);render()" aria-label="Menos">−</button>
+      <span class="num">${ui.many?"∞":ui.cnt}</span>
+      <button onclick="ui.many=false;ui.cnt++;render()" aria-label="Más">+</button></div>
+      <button class="ghost" aria-pressed="${ui.many}" onclick="ui.many=!ui.many;render()">${ui.many?"✓ Muchos":"Muchos"}</button></div>
+    <span class="lbl">Tamaño</span>
+    <div class="row"><input id="size" type="number" inputmode="decimal" min="0" step="0.5" value="${esc(ui.size)}" oninput="ui.size=this.value" placeholder="2">
+      <div class="seg"><button aria-pressed="${ui.unit==="mm"}" onclick="ui.unit='mm';render()">mm</button>
+      <button aria-pressed="${ui.unit==="cm"}" onclick="ui.unit='cm';render()">cm</button></div></div>
+    ${esLinea(ITEMS[S.idx][0])?`<label class="lbl" for="junto">Junto a (dónde de la línea está)</label>
+    <select id="junto" onchange="ui.junto=this.value" style="font:inherit;font-size:17px;padding:10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);width:100%">
+      <option value="">Elige el puesto o máquina más cercana</option>${ITEMS.filter(([c])=>!LINEA().includes(c)).map(([c,nm])=>`<option value="${esc(c)}"${ui.junto===c?" selected":""}>${esc(c)}${nm?" · "+esc(nm):""}</option>`).join("")}</select>`:""}
+    <label class="lbl" for="obs2">Nota (opcional)</label>
+    <input id="obs2" type="text" value="${esc(ui.obs)}" oninput="ui.obs=this.value" placeholder="Ej.: bajo la cinta">
+    <div class="grid2"><button class="ghost" onclick="cancel()">Cancelar</button>
+    <button class="primary" onclick="${esLinea(ITEMS[S.idx][0])?"putPunto":"put"}({t:'num',cnt:ui.cnt,many:ui.many,size:ui.size.trim(),unit:ui.unit,obs:ui.obs.trim()})">Guardar</button></div></div>`;
+}
+
+function buscarMat(){const norm=x=>String(x).toUpperCase().replace(/[^A-Z0-9]/g,"");
+  const v=norm(ui.mat||"");if(!v)return;const i=ITEMS.findIndex(([c])=>norm(c)===v);
+  if(i<0){ui.last=`<b>${esc((ui.mat||"").trim())}</b>: no existe en el plano de Dacor`;ui.lastCode=null;ui.sel=false;render();return}
+  const c=ITEMS[i][0];ui.lastCode=null;
+  ui.last=S.res[c]?`⚠ <b>${esc(c)}</b> ya estaba apuntada: ${esc(txt(S.res[c]))} · si la guardas, se cambia`:"";
+  S.idx=i;ui.sel=true;ui.mat="";save();render();window.scrollTo(0,0)}
+function cancel(){ui={...ui,junto:"",mode:null,cnt:1,many:false,size:"",obs:"",otraTxt:"",otraJunto:""};render()}
+/* otras incidencias: sin matrícula (solo salas con otras:true); con flecha solo si se indica junto a qué están */
+const conOtras=()=>!!(SALAS[SALA_ID]&&SALAS[SALA_ID].otras);
+function guardarOtra(){const t=ui.otraTxt.trim();if(!t)return;S.otras=S.otras||[];const oid=Date.now().toString(36);S.otras.push({t,j:ui.otraJunto||"",id:oid});
+  ui.last=`<b>Otra incidencia: ${esc(t)}</b>${ui.otraJunto?" · junto a "+esc(ui.otraJunto):" · sin flecha"}<br>Van ${S.otras.length} ${S.otras.length===1?"otra":"otras"}`;
+  ui.lastCode="OTRA@"+oid;ui.lastLab="Otra: "+t;save();cancel();window.scrollTo(0,0)}
+function quitarOtra(i){const o=S.otras[i];if(o&&o.id){borrarFoto("OTRA@"+o.id);borrarFoto(k2("OTRA@"+o.id))}S.otras.splice(i,1);save();render()}
+function idsOtras(){(S.otras||[]).forEach((o,i)=>{if(!o.id)o.id="x"+i+Date.now().toString(36)})}
+function fotosOtras(){idsOtras();return (S.otras||[]).flatMap((o,i)=>fotosDe("OTRA@"+o.id).map(f=>({...f,lab:"Otra "+(i+1)+": "+o.t+(f.slot===2?" · foto 2":"")})))}
+function otrasCard(){const o=S.otras||[];if(!o.length)return "";idsOtras();
+  return `<div class="card"><span class="lbl">Otras incidencias (${o.length})</span>${o.map((x,i)=>{const k="OTRA@"+x.id;
+    return `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span class="note" style="min-width:0">${esc(x.t)}${x.j?" · junto a "+esc(x.j):""}</span><button class="ghost" onclick="quitarOtra(${i})" aria-label="Quitar">✕</button></div>`
+    +fotosDe(k).map(f=>`<div class="row"><img class="thumb" src="${f.url}" alt="Foto ${f.slot}"><button class="ghost" onclick="quitarFoto('${esc(k)}',${f.slot})">Quitar foto ${f.slot}</button></div>`).join("")
+    +(!FOTOS[k]?fotoBtn(k,"Foto de la otra "+(i+1)):(!FOTOS[k2(k)]?fotoBtn(k,"Segunda foto de la otra "+(i+1),2):""))}).join("")}</div>`}
+function put(r){
+  const code=ITEMS[S.idx][0];
+  if(CFG.dup&&CFG.dup[code]&&isInc(r)&&!r.lado){ui.rPend=r;ui.mode='lado';render();return}S.res[code]=r;
+  if(!isInc(r))limpiarFotos(code);else if(!r.pts)Object.keys(FOTOS).filter(k=>k.startsWith(code+"@")).forEach(borrarFoto)
+  const libre=!!SALAS[SALA_ID].libre;const nx=libre?-1:nextPending(S.idx), d=done();
+  const ft=isInc(r)?(FOTOS[code]?" · 📷 foto hecha":" · sin foto"):"";
+  ui.lastCode=isInc(r)?code:null;ui.lastLab="";
+  ui.last=`<b>${esc(code)}: ${esc(txt(r))}</b>${ft}<br>Van ${d} de ${ITEMS.length}`+(libre?` · Faltan ${ITEMS.length-d}`:nx>=0?` · Siguiente: ${esc(ITEMS[nx][0])}${ITEMS[nx][1]?" · "+esc(ITEMS[nx][1]):""}`:" · ¡Todos apuntados!");
+  if(nx>=0)S.idx=nx;
+  ui.sel=false;ui.mat="";save();cancel();window.scrollTo(0,0);
+}
+function go(k){ui.sel=true;S.idx=(S.idx+k+ITEMS.length)%ITEMS.length;ui.last="";ui.lastCode=null;save();cancel()}
+function jump(i){ui.sel=true;S.idx=i;ui.last="";ui.lastCode=null;save();cancel();window.scrollTo(0,0)}
+function faltan(){ui.sel=true;const i=S.res[ITEMS[S.idx][0]]?nextPending(S.idx):S.idx;
+  const p=ITEMS.filter(([c])=>!S.res[c]).length;ui.lastCode=null;
+  ui.last=p?`Faltan ${p}. Vamos con la primera pendiente.`:"No falta ninguna.";if(i>=0)S.idx=i;save();cancel()}
+function fin(){S.fin=hhmm(new Date());const u=ultimas();u[SALA_ID]=S.fecha.split("/").slice(0,2).join("/");lsSet("rev-ultimas",JSON.stringify(u));save();render();window.scrollTo(0,0)}
+function reabrir(){S.fin=null;ui.last="";ui.lastCode=null;save();render()}
+function nueva(){ui.view="inicio";S=null;try{localStorage.removeItem(KEY)}catch(e){}borrarTodas();ui.last="";ui.lastCode=null;render()}
+
+function saludo(){const h=new Date().getHours();return h<14?"Buenos días":h<21?"Buenas tardes":"Buenas noches"}
+function renderNombre(a){
+  a.innerHTML=`<div class="head"><h1>Revisiones</h1></div>
+    <div class="card"><span class="lbl">${NOMBRE?"Cambiar nombre":"Antes de empezar"}</span>
+      <label class="name" for="nom">¿Cómo te llamas?</label>
+      <input id="nom" type="text" autocomplete="name" value="${esc(NOMBRE)}" placeholder="Nombre y apellido">
+      <span class="note">Se guarda en este móvil. Sale en el plano, el correo y el parte.</span>
+      <span class="note" id="nomerr" style="color:var(--warn)" hidden>Escribe tu nombre y apellido.</span></div>
+    <button class="primary" onclick="guardarNombre()">Guardar</button>
+    ${NOMBRE?`<button class="ghost" onclick="ui.nombreEdit=false;render()">Cancelar</button>`:""}`;
+  const i=document.getElementById("nom");i.addEventListener("input",()=>document.getElementById("nomerr").hidden=true);
+}
+function guardarNombre(){const v=document.getElementById("nom").value.trim().replace(/\s+/g," ");
+  if(v.length<2){document.getElementById("nomerr").hidden=false;return}
+  NOMBRE=v;lsSet("rev-nombre",v);ui.nombreEdit=false;render()}
+function renderInicio(a){
+  const d=new Date(), fecha=d.toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"short"});
+  const ult=ultimas(), pila=NOMBRE.split(" ")[0];
+  let h=`<div class="top"><span class="meta">${fecha.charAt(0).toUpperCase()+fecha.slice(1)} · ${hhmm(d)}</span>
+      <button class="avatar" onclick="ui.nombreEdit=true;render()" aria-label="Cambiar nombre (${esc(NOMBRE)})">${esc(iniciales(NOMBRE))}</button></div>
+    <div><h1 class="hola">${saludo()}, ${esc(pila)}</h1><p class="sub">¿Qué sala revisas hoy?</p></div>`;
+  if(ui.pend&&S){const z=SALAS[ui.pend];
+    h+=`<div class="aviso"><b>Tienes ${esc(TITULO)} a medias</b>
+      <span class="note">Si empiezas ${esc(z.titulo)}, se borra la revisión a medias y sus fotos.</span>
+      <div class="grid2"><button onclick="ui.pend=null;render()">Cancelar</button>
+      <button class="primary" onclick="start('${ui.pend}')">Empezar ${esc(z.titulo)}</button></div></div>`}
+  if(S){const dn=done(), inc=ITEMS.filter(([c])=>isInc(S.res[c])).length;
+    h+=`<div class="encurso"><span class="pill">${S.fin?"Terminada":"En curso"}</span>
+      <div class="name" style="font-weight:600">${esc(TITULO)}</div>
+      <div class="bar"><i style="width:${dn/ITEMS.length*100}%"></i></div>
+      <div class="row" style="justify-content:space-between"><span class="meta">${dn} de ${ITEMS.length} · ${inc} ${inc===1?"incidencia":"incidencias"} · desde las ${S.ini}</span></div>
+      <button class="primary" onclick="ui.view='rev';render();window.scrollTo(0,0)">${S.fin?"Ver resultados":"Continuar"} →</button></div>`}
+  h+=`<span class="lbl">Salas</span><div class="salas">${Object.entries(SALAS).map(([id,z])=>`
+      <button class="sala" onclick="elegir('${id}')">${ICONOS[id]||""}<span class="t">${esc(z.titulo.split(" · ")[0])}</span>
+        <span class="d">${esc(z.sub)} · ${z.items.length}</span>
+        <span class="d" style="font-weight:400">${ult[id]?"Última: "+esc(ult[id]):"Sin revisiones"}</span></button>`).join("")}</div>
+    ${PROXIMAMENTE.length?`<span class="lbl">Próximamente</span><div class="prox">${PROXIMAMENTE.map(p=>`<span>${p}</span>`).join("")}</div>`:""}`;
+  a.innerHTML=h;
+}
+function renderFin(a){
+  const excel=ITEMS.map(([c])=>`${c}\t${n(S.res[c])}`).concat(RAYA.map(c=>`${c}\t—`)).join("\n");
+  const inc=ITEMS.filter(([c])=>isInc(S.res[c]));
+  const total=ITEMS.reduce((s,[c])=>{const r=S.res[c];return s+(r&&r.t==="num"&&!r.many?r.cnt:0)},0);
+  const correo=`Revisión de limpieza · ${SALA}\nFecha: ${S.fecha} · Inicio: ${S.ini} · Final: ${S.fin}\nRealizado por: ${S.nombre||NOMBRE}\n\n`+
+    ITEMS.map(([c,nm])=>`${c}${nm?` (${nm})`:""}: ${S.res[c]?txt(S.res[c]):"sin apuntar"}`).join("\n")+
+    ``+(RAYA.length&&RAYATXT?"\n\n"+RAYATXT:"")+
+    ((S.otras||[]).length?"\n\nOTRAS INCIDENCIAS:\n"+S.otras.map(o=>"- "+o.t+(o.j?" (junto a "+o.j+")":"")).join("\n"):"");
+  const pend=ITEMS.filter(([c])=>!S.res[c]).length, sf=sinFoto();
+  const conFoto=inc.flatMap(([c])=>fotosItem(c)).concat(fotosOtras());
+  a.innerHTML=`<button class="ghost" style="align-self:flex-start" onclick="ui.view='inicio';render()">← Inicio</button><div class="head"><h2>Fin · ${TITULO}</h2><span class="meta">${S.fecha} · ${S.ini}–${S.fin}</span></div>
+    ${pend?`<div class="warnbox">Quedan ${pend} sin apuntar. <button class="ghost" onclick="reabrir()">Volver a la revisión</button></div>`:""}
+    ${sf.length?`<div class="warnbox miss"><b>${sf.length} ${sf.length===1?"incidencia sin foto":"incidencias sin foto"}</b>
+      <span class="note">Aún estás en la sala: si quieres, hazlas ahora.</span>
+      ${sf.map(k=>fotoBtn(k,labDe(k))).join("")}</div>`:""}
+    <div class="card"><span class="lbl">Resumen</span>
+      <div class="name">${inc.length} elementos con incidencia · ${total} restos contados</div>
+      ${inc.map(([c])=>`<span class="note"><b>${esc(c)}</b>: ${esc(txt(S.res[c]))}${fotosItem(c).length?" · 📷"+fotosItem(c).length:""}</span>`).join("")}</div>
+    ${otrasCard()}
+    <div class="head"><span class="lbl">Fotos de incidencias (${conFoto.length})</span></div>
+    ${conFoto.length?`<div class="gal">${conFoto.map(p=>`<figure><img src="${p.url}" alt="Foto ${p.slot} de ${esc(p.c)}">
+        <figcaption><b>${esc(/^OTRA@/.test(p.c)?"Otra":p.c)}</b><span>${esc(p.lab)}</span><span class="note">${esc(nombreFoto(p.c,p.slot))}</span></figcaption>
+        <button onclick="bajarUna('${esc(p.c)}',${p.slot},this)">Guardar foto</button></figure>`).join("")}</div>
+      <button onclick="bajarZip(this)">Guardar todas (zip)</button>
+      <span class="note">Cada foto lleva fecha, sala y matrícula en el nombre.</span>`
+      :`<span class="note">Aún no hay fotos.</span>`}
+    <span class="lbl">Para el Excel</span><pre id="xl">${esc(excel)}</pre>
+    <button onclick="copy('xl',this)">Copiar bloque Excel</button>
+    <span class="lbl">Para el correo</span><pre id="co">${esc(correo)}</pre>
+    <button onclick="copy('co',this)">Copiar texto del correo</button>
+    <div class="card"><span class="lbl">Plano relleno</span>
+      <label class="lbl" for="tq">Responsable TQ (si lo sabes)</label>
+      <input id="tq" type="text" value="${esc(S.tq||"")}" oninput="S.tq=this.value;save()" placeholder="En blanco si no">
+      <span class="note">Cabecera, listado, textos azules con flecha y, detrás, las fotos de las incidencias.</span>
+      <button class="primary" onclick="bajarPlano(this)">Guardar plano PDF</button></div>
+    <div class="grid2"><button class="ghost" onclick="reabrir()">Volver a editar</button>
+      <button class="ghost" onclick="nueva()">Nueva revisión</button></div>`;
+}
+
+/* ---------- guardar fotos ---------- */
+function dataToBlob(u){const [h,b]=u.split(",");const bin=atob(b);const arr=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);return new Blob([arr],{type:"image/jpeg"})}
+function descargaDirecta(filename,blob){const u=URL.createObjectURL(blob);const a=document.createElement("a");
+  a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)}
+async function bajar(filename,data,b){const t=b.textContent;
+  const blob=data instanceof Blob?data:new Blob([data]);
+  try{
+    let hecho=false;
+    /* en móvil: hoja de compartir (Guardar en Archivos / Fotos); si falla, descarga directa */
+    if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)&&navigator.canShare&&window.File){
+      const f=new File([blob],filename,{type:blob.type});
+      if(navigator.canShare({files:[f]})){
+        try{await navigator.share({files:[f],title:filename});hecho=true}
+        catch(e){if(e&&e.name==="AbortError"){b.textContent="Cancelado";setTimeout(()=>b.textContent=t,2500);return}}
+      }
+    }
+    if(!hecho)descargaDirecta(filename,blob);
+    b.textContent="Guardado ✓"
+  }catch(e){b.textContent="No se pudo guardar"}
+  setTimeout(()=>b.textContent=t,2500)}
+function bajarUna(c,slot,b){bajar(nombreFoto(c,slot),dataToBlob(slot===2?FOTOS[k2(c)]:FOTOS[c]),b)}
+async function bajarZip(b){if(!window.JSZip){b.textContent="No se pudo preparar el zip";return}
+  const z=new JSZip();ITEMS.forEach(([c])=>{if(isInc(S.res[c]))fotosItem(c).forEach(p=>z.file(nombreFoto(p.c,p.slot),p.url.split(",")[1],{base64:true}))});fotosOtras().forEach(p=>z.file(nombreFoto(p.c,p.slot),p.url.split(",")[1],{base64:true}));
+  b.textContent="Preparando…";const blob=await z.generateAsync({type:"blob"});b.textContent="Guardar todas (zip)";
+  bajar(`${fechaISO()}_${SALA_CORTO}_fotos.zip`,blob,b)}
+
+function copy(id,b){const t=document.getElementById(id).textContent;
+  const ok=()=>{b.textContent="Copiado ✓";setTimeout(()=>render(),1500)};
+  try{navigator.clipboard.writeText(t).then(ok,()=>sel(id))}catch(e){sel(id)}}
+function sel(id){const r=document.createRange();r.selectNodeContents(document.getElementById(id));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+
+/* ===== Planos: posiciones y relleno (unidades del dibujo: DH=965, y hacia abajo) ===== */
+/* puntos de cada matrícula sacados de la fuente de cada plano oficial */
+const PL_DH=965;
+const PLANOS={
+ china:{pdf:"plano-china.pdf",LX:1102.6,pitch:(965-120)/58,split:305,
+   bands:{top:{cols:[420,585,750,915],colW:160,rows:[72,84,96],fs:8},
+          bot:{cols:[40,300,560,820],colW:250,rows:[800,814,828,842,856,870,884,898,912,926,940],fs:8.5}},
+   pos:{"TRA504":[460,162],"TBH514":[511,212],"TBH515":[606,212],"TBH536":[741,212],"TBH537":[841,212],
+"TRA511":[685,291],"BAS510":[537,260],"BAS509":[632,260],"BAS512":[767,260],"BAS513":[867,260],
+"VOL-503":[815,377],"VOL-500":[585,377],"U1":[675,113],"U2":[462,390],"U3":[1035,300],
+"SU1":[680,230],"SU2":[710,670],"L1 · ALC-500":[570,605],"SA1":[1033,555],"F1":[995,160],
+"PT1":[410,432],"PT2":[1068,386],"PT3":[925,124],"PT4":[950,756],"S1":[950,225],"S2":[700,445],"S3":[1010,440],
+"S4":[470,735],"S5":[890,640],"P1":[432,205],"P2":[860,140],"P3":[1040,680],"P4":[760,540],"PT9":[730,734],
+"FCB500":[210,165],"CF1":[334,162],"TRA510":[390,358],"PRE500":[341,358],"FLE500":[306,358],"ETQ500":[258,358],"DTM501":[178,358],
+"TRA103":[124,480],"PLA500":[207,475],"PLA501":[207,555],"S6":[130,255],"P5":[100,160],"P6":[48,240],"P7":[392,260],
+"PT5":[30,377],"PT6":[132,325],"PT8":[342,125],"VE1":[225,325],"S7":[160,725],"P8":[48,600],"P9":[220,745],
+"P10":[392,640],"P11":[370,420],"PT7":[334,760]},
+   list:["TRA504","TBH514","TBH515","TBH536","TBH537","TRA511","BAS510","BAS509","BAS512","BAS513","VOL-503","VOL-500",
+"U1","U2","U3","SU1","SU2","L1 · ALC-500","SA1","F1","PT1","PT2","PT3","PT4","S1","S2","S3","S4","S5","P1","P2","P3","P4","PT9",
+"FCB500","CF1","TRA510","PRE500","FLE500","ETQ500","DTM501","TRA103","PLA500","PLA501","S6","P5","P6","P7","PT5","PT6","PT8","VE1",
+"S7","P8","P9","P10","P11","PT7"]},
+ exp2:{pdf:"plano-exp2.pdf",LX:1364.6-330,pitch:(965-120)/46,split:300,
+   bands:{top:{cols:[360,520,680,840],colW:150,rows:[70,82,94],fs:8},
+          bot:{cols:[40,290,540,790],colW:235,rows:[748,762,776,790,804,818,832,846,860,874,888,902,916,930,944],fs:8.5}},
+   pos:{"VOL208":[240,470],"VOL209":[440,470],"TBM534":[242,388],"CR1":[282,245],"TBM535":[439,388],"C2":[439,318],
+    "BAS-1":[190,312],"BAS-2":[291,312],"BAS-3":[391,312],"TBM521":[191,165],"TBM523":[397,195],"TBM520":[650,317],
+    "TBM522":[775,317],"PRE":[852,312],"DTM242":[935,317],"M1":[778,483],"M2":[732,483],"M3":[778,579],"M4":[732,579],
+    "TBM527":[799,530],"PER-1":[840,470],"PER-2":[840,590],"DEC-104":[913,530],"M5":[962,530],"M6":[495,312],"M7":[859,398],
+    "S1":[193.5,268],"S2":[340.5,262],"S3":[490.5,268],"PE1":[193.5,420],"PE2":[340.5,420],"PE3":[490.5,420],
+    "SU1":[818,261],"SU2":[366,356],"SU3":[366,619],"LM1":[444,650],"U1":[157,655],"PSM058":[104,640],"MQ1":[98,570],
+    "PT1":[650,120],"VP1":[990,317],"VP2":[990,441],"VP3":[990,530],"PT3":[316,680],"PT4":[624,680],"PT5":[990,647]},
+   list:["VOL208", "VOL209", "TBM534", "CR1", "TBM535", "C2", "BAS-1", "BAS-2", "BAS-3", "TBM521", "TBM523", "TBM520", "TBM522", "PRE", "DTM242", "M1", "M2", "M3", "M4", "TBM527", "PER-1", "PER-2", "DEC-104", "M5", "M6", "M7", "S1", "S2", "S3", "PE1", "PE2", "PE3", "SU1", "SU2", "SU3", "LM1", "U1", "PSM058", "MQ1", "PT1", "VP1", "VP2", "VP3", "PT3", "PT4", "PT5"],
+   lnames:{"M1":"Mesa 1 · L9","M2":"Mesa 2 · L9","M3":"Mesa 3 · L9","M4":"Mesa 4 · L9","TBM527":"Cinta · L9",
+    "PER-1":"Perco izquierdo · L9 (s/m)","PER-2":"Perco derecho · L9 (s/m)","DEC-104":"Descortezadora · L9",
+    "M5":"Mesa tras descortezadora · L9","M6":"Mesa plataforma · L8"}}
+};
+PLANOS.china2={...PLANOS.china}; /* mismo plano de China, otra revisión */
+/* Despojos Blancos: puntos sacados de la fuente del plano (x=16.8+0.66·x, y=920−0.66·y). El listado va en el orden del plano. */
+PLANOS.blancos={pdf:"plano-blancos.pdf",LX:1034.6,pitch:(965-120)/38,split:300,
+   bands:{top:{cols:[348,735,868],colW:128,rows:[28,40,52,64,76,88],fs:8},
+          bot:{cols:[40,190,340,490,640,790],colW:148,rows:[910,922,934,946,958],fs:8.5}},
+   pos:{"C1":[343,202],"C2":[117,308],"C3":[172,511],"L1":[273,205],"L2":[229,301],"L3":[602,694],"CE1":[415,125],"CE2":[334,307],
+"M1":[222,207],"M2":[402,321],"M3":[220,572],"M4":[597,280],"T1":[340,335],"T2":[516,254],"T3":[674,649],"CT1":[252,467],
+"CA1":[313,405],"DT1":[548,518],"DM1":[494,200],"RA1":[116,200],"FB1":[135,588],"LM1":[62,280],"LM2":[700,387],
+"SU1":[173,216],"SU2":[392,238],"SU3":[443,466],"SU4":[572,431],
+"S1":[361,137],"S2":[179,321],"S3":[592,396],"S4":[417,574],"S5":[718,168],"S6":[718,588],
+"P1":[70,574],"P2":[571,118],"P3":[205,135],"P4":[515,602],"P5":[822,602]},
+   list:["C1","C2","C3","L1","L2","L3","CE1","CE2","M1","M2","M3","M4","T1","T2","T3","CT1","CA1","DT1","DM1","RA1","FB1","LM1","LM2",
+"SU1","SU2","SU3","SU4","S1","S2","S3","S4","S5","S6","P1","P2","P3","P4","P5"],
+   lnames:{"S3":"Suelo zona tanques/calibr."},
+   otrasBox:{x:1034.6,w:310,y0:921,bottom:960},avoid:true};
+
+PLANOS.despiece={pdf:"plano-despiece.pdf",LX:0,pitch:1,split:0,avoid:false,near:true,
+   hdr:{x:76.9,y0:25.9,pitch:18.52,fs:5.6},
+   pos:{"TBM 172":[887.7,665.6],"TBM 175":[886.9,634.0],"TBL 109":[998.8,352.7],"TBL 102":[998.1,319.9],"TFD 105":[664.3,257.7],"TFI 105":[663.4,225.8],"TCI 106":[951.5,62.9],"TCD 106":[896.5,72.0],"BAS 125":[856.8,72.8],"BAS 124":[860.4,61.6],"FCD 106":[694.3,75.4],"TVD 106 (final)":[722.7,66.5],"TVI 106 (final)":[722.8,48.9],"TED 106":[655.3,70.2],"TEE 106":[640.9,99.9],"FCI 106":[694.1,39.5],"TEI 106":[655.3,44.6],"TAC 106":[614.2,101.3],"TTG 106":[559.8,141.3],"TFI 106":[531.0,39.3],"TTI 106":[490.1,45.1],"TBM 102":[348.3,91.8],"TBM 101":[347.8,172.1],"BAS 123":[367.9,176.0],"TVA 106":[385.1,64.6],"TFD 106":[530.9,75.0],"TTD 106":[489.9,69.5],"TVD 106 (principio)":[437.7,65.7],"TVI 106 (principio)":[437.9,48.9],"TFC 106":[491.2,114.5],"TLT 106":[503.1,130.4],"TFT 106":[447.9,146.1],"TLP 106":[529.8,56.8],"TES 100":[287.7,856.9],"TSP 100":[314.2,821.2],"TBL 127":[350.5,624.3]},
+   dup:{"TFD 105":{"izq":[664.3,257.7],"der":[1000.3,257.7]},"TFI 105":{"izq":[663.4,225.8],"der":[999.4,226.2]}},
+   lines:[[["TBM 172"],1267.7,212.5,80.9],[["TBM 175"],1267.7,242.8,80.9],[["TBL 109"],1146.2,728.5,80.9],[["TBL 102"],1146.2,698.2,80.9],[["TFD 105"],1267.7,465.5,80.9],[["TFI 105"],1267.7,505.9,80.9],[["TCI 106"],1267.7,344.0,80.9],[["TCD 106"],1267.7,323.8,80.9],[["BAS 125"],1146.2,151.8,80.9],[["BAS 124"],1146.2,141.7,80.9],[["FCD 106"],1146.2,445.2,80.9],[["TVD 106 (final)","TVD 106 (principio)"],1267.7,900.6,80.9],[["TVI 106 (final)","TVI 106 (principio)"],1267.7,910.7,80.9],[["TED 106"],1267.7,384.5,80.9],[["TEE 106"],1267.7,394.6,80.9],[["FCI 106"],1146.2,455.3,80.9],[["TEI 106"],1267.7,404.7,80.9],[["TAC 106"],1146.2,617.2,80.9],[["TTG 106"],1267.7,870.2,80.9],[["TFI 106"],1267.7,516.1,80.9],[["TTI 106"],1267.7,880.3,80.9],[["TBM 102"],1146.2,900.6,80.9],[["TBM 101"],1146.2,890.4,80.9],[["BAS 123"],1146.2,131.5,80.9],[["TVA 106"],1267.7,890.4,80.9],[["TFD 106"],1267.7,475.6,80.9],[["TTD 106"],1267.7,860.1,80.9],[["TFC 106"],1267.7,435.1,80.9],[["TLT 106"],1267.7,586.9,80.9],[["TFT 106"],1267.7,566.6,80.9],[["TLP 106"],1267.7,576.8,80.9],[["TES 100"],1267.7,425.0,80.9],[["TSP 100"],1267.7,850.0,80.9],[["TBL 127"],1146.2,829.7,80.9]],lroom:80.9,lfs:4.4,
+   nearCfg:{"own":{"TBM 172":[873.0,658.1,899.8,673.1],"TBM 175":[872.2,626.5,898.9,641.5],"TBL 109":[984.8,345.2,1010.3,360.2],"TBL 102":[983.9,312.5,1009.8,327.4],"TFD 105":[650.0,250.1,675.9,265.1],"TFI 105":[649.2,218.2,675.1,233.1],"TCI 106":[937.4,55.5,962.9,70.4],"TCD 106":[882.4,64.4,908.3,79.3],"BAS 125":[848.4,70.0,865.4,75.3],"BAS 124":[851.6,59.1,869.0,64.4],"FCD 106":[680.4,68.0,705.9,83.0],"TVD 106 (final)":[708.7,59.1,734.2,74.1],"TVI 106 (final)":[708.7,41.3,734.6,56.3],"TED 106":[644.4,63.1,668.6,77.3],"TEE 106":[627.0,92.3,652.5,107.3],"FCI 106":[680.0,32.0,705.9,47.0],"TEI 106":[644.4,37.2,668.6,51.8],"TAC 106":[606.3,89.0,622.1,112.5],"TTG 106":[551.7,129.5,571.9,149.4],"TFI 106":[516.9,32.0,542.8,46.5],"TTI 106":[476.0,37.6,501.5,52.6],"TBM 102":[340.0,79.7,356.6,105.6],"TBM 101":[339.6,159.9,356.2,185.8],"BAS 123":[359.4,173.2,376.4,178.9],"TVA 106":[376.8,53.0,393.4,77.3],"TFD 106":[516.9,67.6,542.4,82.6],"TTD 106":[476.0,61.9,501.5,76.9],"TVD 106 (principio)":[423.8,58.3,449.3,73.3],"TVI 106 (principio)":[423.8,41.3,449.3,56.3],"TFC 106":[480.0,107.3,504.7,121.8],"TLT 106":[490.6,123.4,513.6,137.2],"TFT 106":[436.7,138.8,461.4,153.4],"TLP 106":[518.5,49.8,543.2,64.0],"TES 100":[279.3,845.5,295.9,868.6],"TSP 100":[300.3,813.5,325.8,828.5],"TBL 127":[342.4,612.8,358.6,637.1],"TFD 105|der":[986.4,250.1,1011.9,265.1],"TFI 105|der":[985.2,218.6,1011.1,233.5]},"arrows":[[515.8,30.6,543.8,47.9],[678.8,30.8,706.9,48.1],[707.6,40.2,735.7,57.6],[422.6,40.2,450.7,57.6],[517.4,48.4,544.3,65.2],[375.6,51.6,394.6,78.7],[422.4,57.1,450.5,74.4],[707.4,57.9,735.5,75.2],[643.0,61.8,669.9,78.7],[515.6,66.3,543.7,83.6],[881.2,63.3,909.3,80.7],[799.2,64.8,827.3,82.1],[679.0,66.7,707.1,84.1],[604.9,87.7,623.4,113.9],[474.7,60.9,502.8,78.2],[338.8,78.4,357.8,107.0],[936.2,54.2,964.3,71.6],[567.0,79.9,584.1,106.9],[435.0,435.6,463.1,453.0],[866.0,640.1,892.9,656.9],[854.3,405.8,881.2,422.7],[982.8,311.3,1010.9,328.6],[313.2,239.9,332.2,265.5],[983.5,344.0,1011.7,361.4],[455.4,749.5,482.3,766.3],[520.9,640.1,547.8,657.0],[444.9,671.7,461.9,697.1],[445.1,601.1,462.2,626.5],[381.1,296.1,398.1,321.5],[328.8,430.2,347.8,457.0],[341.0,611.4,360.0,638.1],[820.5,765.1,849.6,782.5],[339.0,457.2,358.0,484.0],[459.2,688.3,488.7,705.7],[338.3,158.8,357.3,187.2],[338.1,117.6,357.2,146.2],[1000.8,327.8,1030.4,345.1],[928.9,336.6,946.4,363.6],[643.0,36.1,669.9,53.0],[474.8,36.4,502.9,53.8],[625.6,91.2,653.7,108.5],[478.9,106.0,505.8,122.9],[517.5,113.8,543.7,129.4],[489.3,122.4,514.9,138.4],[435.5,137.7,462.4,154.5],[338.0,206.2,357.0,234.7],[648.1,217.1,676.2,234.4],[984.1,217.5,1012.2,234.9],[707.7,233.2,734.7,250.1],[598.9,233.3,627.0,250.6],[649.0,249.0,677.1,266.4],[985.0,249.1,1013.2,266.4],[345.2,308.9,364.2,337.8],[324.9,308.9,343.8,337.8],[677.5,311.1,705.5,328.4],[621.4,327.3,649.5,344.6],[949.9,328.0,976.8,344.9],[677.6,344.0,705.8,361.3],[400.2,356.4,417.2,383.4],[335.6,353.3,352.7,378.6],[823.8,327.3,850.7,344.1],[669.6,327.9,696.5,344.8],[368.8,340.7,385.9,368.6],[388.0,497.0,417.4,514.4],[506.1,327.8,533.0,344.6],[714.5,405.6,741.5,422.5],[556.3,405.8,583.2,422.6],[597.1,421.3,624.0,438.1],[482.0,421.3,508.8,438.1],[683.3,421.3,711.4,438.6],[796.8,421.4,823.7,438.3],[634.2,437.3,662.3,454.6],[470.0,602.3,499.5,619.7],[608.4,625.1,637.5,642.4],[688.3,639.9,716.4,657.2],[582.2,640.2,609.1,657.1],[607.9,656.7,637.0,674.1],[407.8,661.3,426.3,688.2],[458.6,640.2,485.5,657.1],[870.9,625.3,900.0,642.7],[871.8,656.9,900.8,674.2],[322.7,719.5,350.9,736.8],[346.9,729.5,375.0,746.8],[590.1,734.5,619.2,751.9],[820.3,734.7,849.4,752.1],[619.9,749.6,648.0,767.0],[378.5,766.7,397.5,794.2],[318.1,773.7,337.1,799.3],[276.8,769.9,295.7,795.4],[590.3,764.9,619.3,782.3],[298.9,812.5,327.1,829.9],[291.3,822.9,319.4,840.2],[278.2,844.3,297.2,869.8],[996.3,728.8,1015.3,757.5],[550.5,128.2,573.1,150.4],[635.3,108.2,659.9,129.4],[815.1,48.7,842.7,68.4],[417.5,218.2,442.2,240.9],[410.9,248.0,427.9,275.2],[498.1,314.1,523.0,336.6],[437.4,523.6,459.2,548.4],[355.0,521.7,383.0,543.3],[359.7,525.9,387.7,547.4],[349.2,441.5,372.1,466.3],[405.2,421.5,429.1,443.7],[437.7,624.0,467.3,642.0],[434.5,655.0,464.0,673.1],[457.5,732.8,487.0,750.8],[449.4,762.6,479.0,780.6],[397.3,905.4,424.0,928.2],[416.6,389.8,433.6,418.4],[929.0,309.8,946.1,335.1],[536.5,749.9,563.4,766.7]],"chips":[[322.9,39.7,338.6,45.9],[321.9,68.2,339.2,74.3],[452.0,593.6,469.1,599.8],[408.3,846.4,425.5,852.6],[426.3,788.9,443.4,795.0],[394.3,525.4,411.5,531.6],[331.7,489.9,348.8,496.1],[399.9,285.5,417.1,291.7],[429.8,349.4,446.9,355.5],[434.1,427.8,451.3,433.9],[339.3,191.8,356.5,197.9],[359.3,173.0,376.4,179.1],[851.8,58.6,869.0,64.7],[848.2,69.7,865.4,75.9],[669.5,138.7,686.0,144.9],[593.6,120.0,611.0,126.2],[642.9,143.4,660.3,149.5],[1043.6,333.6,1062.0,339.7],[370.0,861.7,387.3,867.9],[484.3,752.7,501.6,758.9],[490.6,644.6,507.9,650.8],[458.1,427.0,475.4,433.2],[534.9,332.6,552.2,338.8],[429.4,241.3,446.7,247.4],[376.5,85.2,393.8,91.3],[277.7,748.0,294.9,754.2],[909.8,318.1,927.0,324.2],[910.9,350.3,928.1,356.4],[495.7,143.7,512.9,149.8],[502.7,463.0,519.8,469.1],[930.8,255.2,948.0,261.4],[784.6,587.0,801.8,593.1],[897.5,193.1,914.7,199.2],[818.5,662.7,835.7,668.9],[708.9,916.8,725.4,922.9],[628.6,892.1,645.1,898.2],[788.6,891.3,805.1,897.5],[1010.8,371.6,1029.6,377.8],[1011.6,296.8,1030.4,303.0],[295.1,899.1,311.9,905.3],[764.2,767.0,782.5,773.1],[765.1,744.5,783.4,750.6],[447.1,572.8,464.2,578.9],[555.0,886.6,571.4,892.8],[392.4,876.8,408.9,882.9],[445.1,585.8,461.7,591.9],[582.4,886.8,599.8,893.0],[552.1,920.4,569.5,926.6],[426.6,610.2,443.2,616.3],[324.1,267.9,339.5,274.1],[427.5,675.8,442.9,681.9],[346.1,581.9,363.5,588.1],[334.9,513.5,352.3,519.7],[342.1,278.7,359.5,284.9],[331.0,527.2,347.5,533.4],[342.5,295.8,358.9,302.0],[436.6,645.9,455.1,652.0],[489.5,156.7,506.1,162.9],[751.9,214.2,770.4,220.3],[814.0,215.6,832.6,221.8],[946.8,212.7,963.4,218.8],[378.2,218.1,394.0,224.2],[357.8,222.1,376.4,228.2],[401.7,218.6,417.3,224.8],[333.9,236.1,352.4,242.3],[339.2,250.5,357.7,256.7],[455.7,349.0,471.5,355.2],[494.2,476.3,512.8,482.5],[421.8,565.2,440.3,571.4],[663.3,621.5,681.8,627.6],[729.0,621.7,747.5,627.8],[839.0,622.8,857.5,628.9],[444.6,709.3,463.1,715.4],[501.6,779.7,520.2,785.8]],"heads":[[634.2,18.2,710.3,28.7],[445.2,96.7,525.8,107.3],[472.7,178.9,544.0,189.4],[602.7,201.6,684.0,212.1],[743.1,299.1,811.5,309.6],[284.5,357.8,327.0,368.3],[613.2,458.6,673.5,469.1],[279.7,546.4,322.6,556.9],[607.9,585.7,694.5,596.2],[640.7,720.0,707.1,730.6],[296.3,707.5,361.8,718.0],[321.0,839.0,355.4,849.6]],"bandY":[8.9,184.2,289.4,388.6,514.0,702.2,813.5],"bounds":[263.1,13.8,1096.9,955.2],"divider":404.7,"dens":{"TBM 172":33,"TBM 175":32,"TBL 109":18,"TBL 102":17,"TFD 105":37,"TFI 105":36,"TCI 106":35,"TCD 106":24,"BAS 125":29,"BAS 124":30,"FCD 106":6,"TVD 106 (final)":8,"TVI 106 (final)":14,"TED 106":0,"TEE 106":10,"FCI 106":15,"TEI 106":19,"TAC 106":7,"TTG 106":12,"TFI 106":13,"TTI 106":9,"TBM 102":23,"TBM 101":26,"BAS 123":31,"TVA 106":16,"TFD 106":3,"TTD 106":4,"TVD 106 (principio)":8,"TVI 106 (principio)":14,"TFC 106":11,"TLT 106":20,"TFT 106":21,"TLP 106":1,"TES 100":34,"TSP 100":22,"TBL 127":25}},
+   slots:[["TFI106",531.0,39.3,594.4,37.3,86.2,0,550.9,39.3,544.2,39.3],["FCI106",694.1,39.5,780.2,39.5,86.2,0,736.6,39.5,707.3,39.5],["TVI106",437.9,48.9,473.5,15.7,86.2,0,437.9,20.0,437.9,39.8],["TVI106",722.8,48.9,770.6,50.9,55.0,1,742.7,48.9,736.2,48.9],["TLP106",529.8,56.8,599.6,58.9,86.2,0,556.1,56.8,544.8,56.8],["TVA106",385.1,64.6,325.0,62.6,86.2,0,368.5,64.6,375.4,64.6],["TVD106",437.7,65.7,452.3,87.6,55.0,1,437.7,82.7,437.7,74.8],["TVD106",722.7,66.5,758.3,88.4,86.2,0,722.7,83.5,722.7,75.6],["TED106",655.3,70.2,592.0,68.2,86.2,0,635.5,70.2,642.8,70.2],["TFD106",530.9,75.0,612.7,77.0,55.0,1,584.8,75.0,543.9,75.0],["TCD106",896.5,72.0,1014.9,74.0,86.2,0,971.4,72.0,909.8,72.0],["FCD106",694.3,75.4,763.1,73.4,55.0,1,735.2,75.4,707.5,75.4],["TAC106",614.2,101.3,649.8,134.5,86.2,0,614.2,129.6,614.2,114.1],["TTD106",489.9,69.5,508.6,89.8,55.0,1,489.9,84.9,489.9,78.4],["TBM102",348.3,91.8,303.8,91.8,55.0,1,331.7,91.8,338.6,91.8],["TCI106",951.5,62.9,938.6,42.6,86.2,0,951.5,46.9,951.5,54.0],["TBL102",998.1,319.9,964.9,299.7,86.2,0,998.1,303.9,998.1,311.0],["TBL109",998.8,352.7,961.6,374.6,86.2,0,998.8,369.7,998.8,361.8],["TBL127",350.5,624.3,349.7,651.0,86.2,0,350.5,646.1,350.5,638.7],["TBM101",347.8,172.1,298.4,174.2,55.0,1,326.3,172.1,338.1,172.1],["TEI106",655.3,44.6,592.0,46.6,86.2,0,635.5,44.6,642.8,44.6],["TTI106",490.1,45.1,517.6,24.9,86.2,0,490.1,29.1,490.1,36.2],["TEE106",640.9,99.9,704.3,97.9,86.2,0,660.8,99.9,653.9,99.9],["TFC106",491.2,114.5,441.9,114.5,55.0,1,469.8,114.5,478.5,114.5],["TLT106",503.1,130.4,448.9,132.4,55.0,1,476.8,130.4,489.0,130.4],["TFT106",447.9,146.1,471.3,167.9,86.2,0,447.9,163.1,447.9,155.0],["TFI105",663.4,225.8,726.7,227.8,86.2,0,683.2,225.8,676.5,225.8],["TFI105",999.4,226.2,986.5,205.9,86.2,0,999.4,210.2,999.4,217.1],["TFD105",664.3,257.7,651.3,277.9,86.2,0,664.3,273.0,664.3,266.6],["TFD105",1000.3,257.7,987.4,278.0,86.2,0,1000.3,273.1,1000.3,266.6],["TBM175",886.9,634.0,849.7,612.1,86.2,0,886.9,616.4,886.9,625.1],["TBM172",887.7,665.6,915.3,687.4,86.2,0,887.7,682.6,887.7,674.7],["TSP100",314.2,821.2,363.6,819.2,55.0,1,335.7,821.2,327.4,821.2],["TES100",287.7,856.9,354.3,854.8,86.2,0,310.8,856.9,297.4,856.9],["TTG106",559.8,141.3,575.1,164.7,86.2,0,559.8,159.9,559.8,150.8],["BAS125",856.8,72.8,888.3,88.2,86.2,0,856.8,83.3,856.8,76.9],["BAS124",860.4,61.6,867.7,33.3,86.2,0,860.4,37.5,860.4,57.6],["BAS123",367.9,176.0,350.9,154.2,86.2,0,367.9,158.4,367.9,171.8]],
+   dirs:{"TVD 106 (principio)":"below","TVI 106 (principio)":"above"},
+   list:[]};
+PLANOS.dacor={pdf:"plano-dacor.pdf",LX:0,pitch:1,split:0,avoid:false,
+   hdr:{x:211,y0:75.4,pitch:22.65,fs:8},
+   bands:{bot:{cols:[135,377,619,861],colW:229,rows:[822.0,833.7,845.4,857.1,868.8,880.5,892.2],fs:8},
+          left:{side:true,cols:[18],colW:100,rows:[215,227,239,251,263,275,287,299,311,323,335,347,359,371,383,395,407,419,431,443,455,467,479,491,503,515,527,539,551,563,575,587,599,611,623,635,647,659,671,683,695,707,719,731,743,755,767,779,791,803,815,827,839,851,863,875,887,899],fs:8},
+          right:{side:true,cols:[1240],colW:105,rows:[193,205,217,229,241,253,265,277,289,301,313,325,337,349,361,373,385,397,409,421,433,445,457,469,481,493,505,517,529,541,553,565,577,589,601,613,625,637,649,661,673,685,697,709,721,733,745,757,769,781,793,805,817,829,841,853,865,877,889],fs:8}},
+   assign:a=>{const dl=a[0]-118,dr=1240-a[0],db=815-a[1];return db<=dl&&db<=dr?"bot":(dl<=dr?"left":"right")},
+   pos:{"DAC01":[388.4,485.3],"DAC02":[306.8,486.2],"DAC03":[242.2,486.2],"DAC04":[183.9,496.9],"DAC05":[174.0,535.5],"DAC06":[198.2,602.8],"DAC07":[154.3,635.1],"DAC08":[183.0,659.3],"DAC09":[966.1,652.1],"DAC10":[407.2,629.7],"DAC11":[408.1,690.7],"DAC12":[1150.0,638.7],"DAC12B":[1127.5,521.2],"DAC13":[956.2,462.9],"DAC14":[914.9,462.9],"DAC15":[886.2,447.6],"DAC16":[843.2,447.6],"DAC17":[816.3,464.6],"DAC18":[775.9,464.6],"DAC19":[726.6,464.6],"DAC20":[666.5,484.4],"DAC21":[615.3,484.4],"DAC22":[759.8,563.3],"DAC23":[1089.0,576.8],"DAC24":[702.4,653.9],"DAC25":[702.4,671.0],"DAC26":[627.9,536.4],"DAC27":[519.4,330.1],"DAC30":[483.5,531.9],"DAC31":[967.9,670.1],"DAC32":[1064.7,654.8],"DAC33":[1173.3,688.0],"DAC34":[1158.0,312.2],"DAC35":[1183.1,143.5],"DAC36":[899.7,141.7],"DAC37":[523.0,653.9],"DAC38":[523.0,671.0],"DAC39":[517.6,505.9],"BAS036":[1028.0,512.2],"BAS129":[1088.1,141.7],"BAS130":[950.8,268.2],"BAS131":[452.1,598.3],"BAS271":[207.2,383.0],"BAS402":[812.7,86.1],"DEC115":[143.5,718.5],"DEC116":[141.7,576.8],"DEC117":[923.9,755.3],"DEC118":[749.9,577.7],"DEC119":[733.7,755.3],"DEC120":[837.8,577.7],"DEC121":[572.3,577.7],"DEC122":[322.9,202.7],"DEV109":[826.1,755.3],"DEV110":[834.2,212.6],"DEV112":[667.4,577.7],"DEV200":[1011.8,755.3],"DTM103":[1031.5,141.7],"DTM104":[982.2,512.2],"SCM102":[1097.9,402.8],"SCM200":[1134.7,263.7],"TBM160":[444.0,239.5],"VOL101":[1049.5,257.4],"VOL102":[270.9,278.1]},
+   lines:[[["DAC01"],1448.7,113.9],[["DAC02"],1448.7,139.4],[["DAC03"],1448.7,164.9],[["DAC04"],1448.7,190.3],[["DAC05"],1448.7,215.8],[["DAC06"],1448.7,241.2],[["DAC07"],1448.7,266.7],[["DAC08"],1448.7,292.2],[["DAC09"],1448.7,317.6],[["DAC10"],1448.7,343.1],[["DAC11"],1448.7,368.6],[["DAC12"],1448.7,394.0],[["DAC12B"],1448.7,419.5],[["DAC13"],1448.7,445.0],[["DAC14"],1448.7,470.4],[["DAC15"],1448.7,495.9],[["DAC16"],1448.7,521.4],[["DAC17"],1448.7,546.8],[["DAC18"],1448.7,572.3],[["DAC19"],1448.7,597.8],[["DAC20"],1448.7,623.2],[["DAC21"],1448.7,648.7],[["DAC22"],1448.7,674.2],[["DAC23"],1448.7,699.6],[["DAC24"],1448.7,725.1],[["DAC25"],1448.7,750.6],[["DAC26"],1448.7,776.0],[["DAC27"],1448.7,801.5],[["DAC30"],1448.7,827.0],[["DAC31"],1448.7,852.4],[["DAC32"],1448.7,877.9],[["DAC33"],1448.7,903.4],[["DAC34"],1649.6,113.9],[["DAC35"],1649.6,139.4],[["DAC36"],1649.6,164.9],[["DAC37"],1649.6,190.3],[["DAC38"],1649.6,215.8],[["DAC39"],1649.6,241.2],[["BAS036"],1649.6,266.7],[["BAS129"],1649.6,292.2],[["BAS130"],1649.6,317.6],[["BAS131"],1649.6,343.1],[["BAS271"],1649.6,368.6],[["BAS402"],1649.6,394.0],[["DEC115"],1649.6,419.5],[["DEC116"],1649.6,445.0],[["DEC117"],1649.6,470.4],[["DEC118"],1649.6,495.9],[["DEC119"],1649.6,521.4],[["DEC120"],1649.6,546.8],[["DEC121"],1649.6,572.3],[["DEC122"],1649.6,597.8],[["DEV109"],1649.6,623.2],[["DEV110"],1649.6,648.7],[["DEV112"],1649.6,674.2],[["DEV200"],1649.6,699.6],[["DTM103"],1649.6,725.1],[["DTM104"],1649.6,750.6],[["SCM102"],1649.6,776.0],[["SCM200"],1649.6,801.5],[["TBM160"],1649.6,827.0],[["VOL101"],1649.6,852.4],[["VOL102"],1649.6,877.9]],lroom:115,lfs:6.6,
+   list:[]};
+
+PLANOS.rojos={pdf:"plano-rojos.pdf",LX:1034.6,pitch:(965-100)/71,y0:53.3,split:0,avoid:false,over:{mid:"bot"},
+   bands:{right:{side:true,cols:[845],colW:170,rows:[25,37,49,61,73,85,97,109,121,133,145,157,169,181,193,205,217,229,241,253,265,277,289,301,313,325,337,349,361,373,385,397,409,421,433,445,457,469,481,493,505,517,529],fs:8},
+          mid:{cols:[60,290,520,750],colW:225,rows:[750,762,774,786,798],fs:8},
+          bot:{cols:[30,290,550,810],colW:240,rows:[912,923,934,945,956],fs:8.5}},
+   assign:a=>{const d=(p,q)=>Math.hypot(p[0]-q[0],p[1]-q[1]),cl=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+     const dr=d(a,[845,cl(a[1],25,530)]),dm=d(a,[cl(a[0],60,975),762]),db=d(a,[cl(a[0],30,1030),912]);
+     return dr<=dm&&dr<=db?"right":(dm<=db?"mid":"bot")},
+   pos:{"CP2":[382.2,152.8],"TC2":[293.8,119.5],"CP1":[115.0,397.6],"TC1":[53.8,267.0],"CP3":[733.1,382.0],"TC3":[820.2,363.6],"CP4":[349.6,424.8],"TC4":[313.6,496.2],"M4":[529.8,167.8],"TF1":[706.6,165.7],"M3":[786.2,199.0],"ES1":[691.6,231.0],"M5":[412.2,229.0],"CEN-501":[351.6,309.9],"CEN-500":[412.8,309.9],"M2":[480.8,306.5],"M1":[579.4,314.0],"LM1":[193.2,351.4],"SA1":[820.2,456.1],"SU1":[320.4,401.0],"SU2":[606.0,416.6],"SU3":[714.1,316.0],"SU4":[708.6,421.4],"S2":[453.6,335.7],"S3":[465.2,173.2],"S4":[684.2,294.2],"P1":[47.0,159.6],"P2":[601.2,125.6],"P3":[822.2,275.2],"P4":[506.0,496.2],"PT3":[458.4,112.0],"PT4":[172.8,506.4],"PT5":[635.2,506.4],"BA1":[75.6,737.6],"RG1":[987.4,635.6],"CA1":[987.4,676.4],"S1":[98.0,839.6],"E1":[98.0,686.6],"E2":[153.8,686.6],"E3":[209.5,686.6],"E4":[265.3,686.6],"E5":[321.0,686.6],"E6":[376.8,686.6],"E7":[432.6,686.6],"E8":[488.3,686.6],"E9":[544.1,686.6],"E10":[599.8,686.6],"E11":[655.6,686.6],"E12":[711.4,686.6],"E13":[767.1,686.6],"E14":[822.9,686.6],"CU1":[213.6,866.8],"AF1":[151.7,829.4],"X1":[257.1,865.4],"X6":[257.1,885.8],"CU2":[397.2,866.8],"AF2":[335.3,829.4],"X2":[440.7,865.4],"X7":[440.7,885.8],"CU3":[580.8,866.8],"AF3":[518.9,829.4],"X3":[624.3,865.4],"X8":[624.3,885.8],"CU4":[764.4,866.8],"AF4":[702.5,829.4],"X4":[807.9,865.4],"X9":[807.9,885.8],"CU5":[948.0,866.8],"AF5":[886.1,829.4],"X5":[991.5,865.4],"X10":[991.5,885.8]},
+   list:["RG1","CA1","BA1","E1","E2","E3","E4","E5","E6","E7","E8","E9","E10","E11","E12","E13","E14","X1","X2","X3","X4","X5","X6","X7","X8","X9","X10","CU1","CU2","CU3","CU4","CU5","AF1","AF2","AF3","AF4","AF5","ES1","CEN-501","CEN-500","M1","M2","M3","M4","M5","TF1","CP1","CP2","CP3","CP4","TC1","TC2","TC3","TC4","PT3","PT4","PT5","SU1","SU2","SU3","SU4","LM1","SA1","S1","S2","S3","S4","P1","P2","P3","P4"]};
+
+PLANOS.sangrado={pdf:"plano-sangrado.pdf",vias:{"VÍA":[[985,220],[125,220],[125,355],[890,355],[890,507],[290,507]]},LX:0,pitch:1,split:0,avoid:true,
+   bands:{top:{cols:[440,575,710,845],colW:130,rows:[64,76,88],fs:8},
+          mid:{cols:[605,700,795,890],colW:100,rows:[725,737,749,761,773,785,797,809,821,833,845,857],fs:8},
+          left:{cols:[60,190,320,450],colW:125,rows:[740,752,764,776,788,800,812,824,836,848,860],fs:8},
+          bot:{cols:[30,290,550,810],colW:240,rows:[895,907,919,931,943,955],fs:8.5}},
+   zones:{top:[440,60,975,95],mid:[605,725,990,865],left:[60,735,575,865],bot:[30,885,1010,960]},
+   pos:{"VÍA":[600,220],"XX3":[967.5,190],"MBU-500":[820,220],"POL-500":[967.5,277],"ELE-500":[895,255],"TRG-502":[692,176],"TRG-501":[685,300],"IND-500":[600,220],"ROT-500":[557.5,200],"ANI-500":[512,244],"TRS-500":[440,214],"IND-501":[360,220],"TRG-503":[270,279],"PRL-500":[170,355],"TEC-500":[600,443],"DES-500":[302.5,508],"DPT-500":[215,508],"DPT-501":[102.5,508],"GBD-500":[85,651],"GBD-501":[140,651],"GBD-502":[195,651],"BFP-500":[267.5,651],"BAN-500":[345,651],"PT1":[847.5,690],"PT2":[478,690],"PT3":[30,790],"PT4":[955,520],"PT5":[30,182],"PT6":[30,439],"LM1":[595,109],"LM2":[999,316],"LM3":[783,678],"LM4":[43,862],"SA1":[537,109],"SA2":[999,240],"SA3":[739,678],"F1":[691,109],"S1":[395,176],"S2":[440,390],"S3":[440,608],"S4":[945,383],"S5":[70,314],"P1":[440,112],"P2":[490,322],"P3":[570,676],"P4":[992,425],"SU1":[66,241],"SU2":[189,192],"SU3":[309,190],"SU4":[468,192],"SU5":[650,184],"SU6":[760,186],"SU7":[42,367],"SU8":[115,371],"SU9":[288,326],"SU10":[431,326],"SU11":[543,326],"SU12":[661,328],"SU13":[840,326],"SU14":[975,358],"SU15":[215,435],"SU16":[455,438],"SU17":[734,438],"SU18":[980,496],"SU19":[133,562],"SU20":[349,559],"SU21":[428,550],"SU22":[516,550],"SU23":[667,550],"SU24":[937,547],"SU25":[321,791]},
+   lines:[[["XX3"],1072.6,64.2,146],[["MBU-500"],1072.6,83.2,146],[["POL-500"],1072.6,102.2,146],[["ELE-500"],1072.6,121.2,146],[["TRG-502"],1072.6,140.2,146],[["TRG-501"],1072.6,159.2,146],[["IND-500"],1072.6,178.2,146],[["ROT-500"],1072.6,197.2,146],[["ANI-500"],1072.6,216.2,146],[["TRS-500"],1072.6,235.2,146],[["IND-501"],1072.6,254.2,146],[["TRG-503"],1072.6,273.2,146],[["PRL-500"],1072.6,292.2,146],[["TEC-500"],1072.6,311.2,146],[["DES-500"],1072.6,330.2,146],[["DPT-500"],1072.6,349.2,146],[["DPT-501"],1072.6,368.2,146],[["GBD-500"],1072.6,387.2,146],[["GBD-501"],1072.6,406.2,146],[["GBD-502"],1072.6,425.2,146],[["BFP-500"],1072.6,444.2,146],[["BAN-500"],1072.6,463.2,146],[["PT1"],1072.6,482.2,146],[["PT2"],1072.6,501.2,146],[["PT3"],1072.6,520.2,146],[["PT4"],1072.6,539.2,146],[["PT5"],1072.6,558.2,146],[["PT6"],1072.6,577.2,146],[["LM1"],1072.6,596.2,146],[["LM2"],1072.6,615.2,146],[["LM3"],1072.6,634.2,146],[["LM4"],1072.6,653.2,146],[["SA1"],1072.6,672.2,146],[["SA2"],1072.6,691.2,146],[["SA3"],1072.6,710.2,146],[["F1"],1072.6,729.2,146],[["S1"],1072.6,748.2,146],[["S2"],1072.6,767.2,146],[["S3"],1072.6,786.2,146],[["S4"],1072.6,805.2,146],[["S5"],1072.6,824.2,146],[["P1"],1072.6,843.2,146],[["P2"],1072.6,862.2,146],[["P3"],1072.6,881.2,146],[["P4"],1072.6,900.2,146],[["VÍA"],1072.6,919.2,146],[["SU1"],1276.6,64.2,73.0],[["SU2"],1276.6,83.2,73.0],[["SU3"],1276.6,102.2,73.0],[["SU4"],1276.6,121.2,73.0],[["SU5"],1276.6,140.2,73.0],[["SU6"],1276.6,159.2,73.0],[["SU7"],1276.6,178.2,73.0],[["SU8"],1276.6,197.2,73.0],[["SU9"],1276.6,216.2,73.0],[["SU10"],1276.6,235.2,73.0],[["SU11"],1276.6,254.2,73.0],[["SU12"],1276.6,273.2,73.0],[["SU13"],1276.6,292.2,73.0],[["SU14"],1276.6,311.2,73.0],[["SU15"],1276.6,330.2,73.0],[["SU16"],1276.6,349.2,73.0],[["SU17"],1276.6,368.2,73.0],[["SU18"],1276.6,387.2,73.0],[["SU19"],1276.6,406.2,73.0],[["SU20"],1276.6,425.2,73.0],[["SU21"],1276.6,444.2,73.0],[["SU22"],1276.6,463.2,73.0],[["SU23"],1276.6,482.2,73.0],[["SU24"],1276.6,501.2,73.0],[["SU25"],1276.6,520.2,73.0]],lroom:146,lfs:6.2,
+   list:[]};
+PLANOS.pulido={pdf:"plano-pulido.pdf",vias:{"VÍA":[[975,283],[45,283]],"CAN":[[700,297],[45,297]]},LX:1034.6,pitch:(965-120)/43,split:0,avoid:true,
+   bands:{bot:{cols:[30,290,550,810],colW:245,rows:[600,612,624,636,648,660,672,684,696,708,720,732,744,756,768,780,792,804,816,828,840,852,864,876,888,900,912,924,936,948],fs:8.5}},
+   zones:{bot:[30,585,1010,960]},
+   pos:{"VÍA":[500,283],"CAN":[500,297],"TOBOGÁN":[930,195],"MPV-500":[835,280],"XX1":[922.5,371],"ELE-501":[640,280],"AUT-500":[696,267],"TRC-503":[964,300],"XX2":[518,225],"IND-502":[470,280],"PRS-500":[420,280],"HCS-500":[339.5,280],"PUL-500":[249,280],"PUS-500":[159,280],"HCS-501":[89,280],"TRG-504":[300,355],"TRC-502":[600,466],"LVC-500":[125,464],"LAV-507":[591,118],"SU1":[805,316],"LM1":[277,112],"LM2":[549,112],"LM3":[725,112],"SA1":[838,110],"SA2":[184,544],"ESCALERAS":[325,491],"PT1":[378,100],"PT2":[437,100],"PT3":[510,100],"PT4":[589.5,100],"PT5":[768,100],"PT6":[913,141],"PT7":[950,515],"PT8":[695,100],"PT9":[30,147.5],"PT10":[30,408.5],"PASARELA":[518,292],"S1":[700,205],"S2":[700,392],"P1":[200,112],"P2":[990,330],"P3":[400,560],"P4":[17,300]},
+   list:["TOBOGÁN","MPV-500","XX1","ELE-501","AUT-500","TRC-503","XX2","IND-502","PRS-500","HCS-500","PUL-500","PUS-500","HCS-501","TRG-504","TRC-502","LVC-500","LAV-507","SU1","LM1","LM2","LM3","SA1","SA2","ESCALERAS","PT1","PT2","PT3","PT4","PT5","PT6","PT7","PT8","PT9","PT10","PASARELA","S1","S2","P1","P2","P3","P4","VÍA","CAN"]};
+
+PLANOS.limpia={pdf:"plano-limpia.pdf",DH:990,lineY:{"BF":0,"VÍA":8,"CAN":17.5},tramos:[[0,305,205],[305,548,462],[548,785,677],[785,990,872]],LX:1080,pitch:1,split:0,avoid:true,
+   hdr:{x:145,y0:26,pitch:16.5,fs:9},
+   bands:{s1:{cols:[190, 380],colW:170,rows:[121,131,141],fs:8},
+          s2:{cols:[345, 555, 765],colW:200,rows:[268,278,288],fs:8},
+          s3:{cols:[440, 610, 780],colW:160,rows:[319,329,339],fs:8},
+          s4:{cols:[40],colW:280,rows:[575,585,595,605],fs:8},
+          s5:{cols:[805],colW:190,rows:[568,578,588,598],fs:8},
+          s7:{cols:[570, 790],colW:205,rows:[498,508,518],fs:8},
+          s6a:{cols:[135],colW:160,rows:[812,822,832,842],fs:8},
+          s6b:{cols:[545],colW:200,rows:[812,822,832,842],fs:8},
+          s8:{cols:[140, 320],colW:170,rows:[940,950,960],fs:8},
+          s9:{cols:[760],colW:230,rows:[940,950,960],fs:8},
+          r:{cols:[1003],colW:74,rows:[105,116,127,138,149,160,171,182,193,204,215,226,237,248,259,270,281,292,303,314,325,336,347,358,369,380,391,402,413,424,435,446,457,468,479,490,501,512,523,534,545,556,567,578,589,600,611,622,633,644,655,666,677,688,699,710,721,732,743,754,765,776,787,798,809,820,831,842,853,864,875,886,897,908,919,930,941,952,963,974],fs:8}},
+   zones:{"s1":[190,117,550,142],"s2":[345,262,965,292],"s3":[440,316,940,350],"s4":[40,570,320,607],"s5":[805,565,995,600],"s7":[570,495,995,520],"s6a":[135,810,295,845],"s6b":[545,810,745,845],"s8":[140,938,670,962],"s9":[760,938,990,962],"r":[1003,105,1077,985]},
+   pos:{"FUM-500":[65,206],"CTB-500":[130,234],"BAS-504":[185,234],"TRE-502":[610,236],"TRE-505":[430,255],"VOL-400":[586,129],"PU33":[133,162],"PU32":[201,162],"PU-GANG":[293,162],"PU31":[361,162],"PU30":[429,162],"PU29":[497,162],"PU28":[565,162],"PU27":[633,162],"PU-NUEVO":[701,162],"PU25":[769,162],"PU24":[837,162],"PU23":[905,162],"PU34":[220,279],"ESP-1":[200,198],"CC":[313,339],"TRE-504":[430,362],"POL-501":[255,386],"SME-501":[371,386],"PU21":[261,425],"PU20":[377,425],"FLR-500":[78,470],"PU22":[175,425],"PU19":[495,425],"PU18":[565,425],"PU17-16":[682,415],"ESP-2":[628,447],"PU15":[795,425],"PU14":[875,425],"PU41-40":[210,515],"TRE-503":[370,498],"FNC-501":[507,503],"LVG-500":[688,586],"LVP-500":[688,627],"CAD-G":[400,584],"CAD-B":[400,627],"TRT-500":[470,630],"TVR-500":[525,630],"SME-502":[64,622],"SME-500":[122,622],"SFK-502":[264,624],"SFK-503":[184,685],"SFK-501":[294,685],"PU6":[825,632],"CUL-501":[908,632],"TRE-501":[840,711],"PU13":[375,734],"PU12":[441,734],"PU11":[507,734],"PU10":[573,734],"PU9":[639,734],"PU8":[705,734],"PU7":[771,734],"ROBOT CULANAS":[86,874],"FBO-500":[220,874],"FPC-500":[410,875],"FDI-500":[499,873],"SEX-500":[785,906],"VLC-500":[930,877],"TBM-517":[75,917],"TBM-516":[490,906],"PU5":[325,825],"PU-PEZ":[785,825],"PU4":[665,929],"BF":[560,205],"VÍA":[720,213],"CAN":[820,222]},
+   lines:[[["FUM-500"],1152,55.5,66],[["CTB-500"],1152,77.5,66],[["BAS-504"],1152,99.5,66],[["TRE-505"],1152,121.5,66],[["TRE-502"],1152,143.5,66],[["VOL-400"],1152,165.5,66],[["FLR-500"],1152,187.5,66],[["TRE-503"],1152,209.5,66],[["POL-501"],1152,231.5,66],[["SME-501"],1152,253.5,66],[["TRE-504"],1152,275.5,66],[["FNC-501"],1152,297.5,66],[["SME-502"],1152,319.5,66],[["SME-500"],1152,341.5,66],[["SFK-503"],1152,363.5,66],[["SFK-502"],1152,385.5,66],[["SFK-501"],1152,407.5,66],[["TRE-501"],1152,429.5,66],[["TRT-500"],1152,451.5,66],[["TVR-500"],1152,473.5,66],[["CAD-B"],1152,495.5,66],[["LVP-500"],1152,517.5,66],[["CAD-G"],1152,539.5,66],[["LVG-500"],1152,561.5,66],[["CUL-501"],1152,583.5,66],[["ROBOT CULANAS"],1152,605.5,66],[["TBM-517"],1152,627.5,66],[["FBO-500"],1152,649.5,66],[["FPC-500"],1152,671.5,66],[["FDI-500"],1152,693.5,66],[["SEX-500"],1152,715.5,66],[["TBM-516"],1152,737.5,66],[["VLC-500"],1152,759.5,66],[["BF"],1152,781.5,66],[["VÍA"],1152,803.5,66],[["CAN"],1152,825.5,66],[["PU33"],1302,55.5,78],[["PU32"],1302,77.5,78],[["PU34"],1302,99.5,78],[["PU-GANG"],1302,121.5,78],[["PU31"],1302,143.5,78],[["PU30"],1302,165.5,78],[["PU29"],1302,187.5,78],[["PU28"],1302,209.5,78],[["PU27"],1302,231.5,78],[["PU-NUEVO"],1302,253.5,78],[["PU25"],1302,275.5,78],[["PU24"],1302,297.5,78],[["PU23"],1302,319.5,78],[["PU41-40"],1302,341.5,78],[["PU22"],1302,363.5,78],[["PU21"],1302,385.5,78],[["PU20"],1302,407.5,78],[["PU19"],1302,429.5,78],[["PU18"],1302,451.5,78],[["PU17-16"],1302,473.5,78],[["PU15"],1302,495.5,78],[["PU14"],1302,517.5,78],[["PU13"],1302,539.5,78],[["PU12"],1302,561.5,78],[["PU11"],1302,583.5,78],[["PU10"],1302,605.5,78],[["PU9"],1302,627.5,78],[["PU8"],1302,649.5,78],[["PU7"],1302,671.5,78],[["PU6"],1302,693.5,78],[["PU5"],1302,715.5,78],[["PU-PEZ"],1302,737.5,78],[["PU4"],1302,759.5,78],[["CC"],1302,781.5,78],[["ESP-1"],1302,803.5,78],[["ESP-2"],1302,825.5,78]],lroom:66,lfs:5.6,
+   otrasBox:{x:1230,w:150,y0:852,bottom:984},list:[]};
+
+function segCross(a,b){const o=(p,q,r)=>Math.sign((q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0]));
+  const [p1,p2]=a,[p3,p4]=b;return o(p1,p2,p3)*o(p1,p2,p4)<0&&o(p3,p4,p1)*o(p3,p4,p2)<0}
+
+function ptSeg(p,a,b){const dx=b[0]-a[0],dy=b[1]-a[1],l2=dx*dx+dy*dy||1;let t=((p[0]-a[0])*dx+(p[1]-a[1])*dy)/l2;t=Math.max(0,Math.min(1,t));
+  return Math.hypot(p[0]-(a[0]+t*dx),p[1]-(a[1]+t*dy))}
+function segRoza(A,B){let c=0;for(let s=1;s<16;s++){const t=s/16;if(ptSeg([A[0][0]+(A[1][0]-A[0][0])*t,A[0][1]+(A[1][1]-A[0][1])*t],B[0],B[1])<6)c++}return c>=3}
+
+/* notes: [{code,text}] ; width(text,fs) -> ancho en unidades del dibujo */
+function layoutNotas(notes,width,cfg){
+  // franjas libres del plano: arriba (3 filas, sobre la sala) y abajo (bajo todo el dibujo)
+  const BANDS=cfg.bands;
+  const g={};Object.keys(BANDS).forEach(k=>g[k]=[]);
+  const cnt={};Object.keys(BANDS).forEach(k=>cnt[k]=0);
+  const zk=a=>{const o=Object.keys(cfg.zones).map(k=>{const z=cfg.zones[k],dx=Math.max(z[0]-a[0],0,a[0]-z[2]),dy=Math.max(z[1]-a[1],0,a[1]-z[3]);return [Math.hypot(dx,dy),k]}).sort((p,q)=>p[0]-q[0]);
+    for(const [,k] of o){const B=BANDS[k];if(cnt[k]<B.cols.length*B.rows.length){cnt[k]++;return k}}return o[0][1]};
+  notes.forEach(n=>{const a=n.at||cfg.pos[n.code];if(a)g[cfg.zones?zk(a):cfg.assign?cfg.assign(a):(a[1]<cfg.split?"top":"bot")].push({...n,a})});
+  const capTop=BANDS.top?BANDS.top.cols.length*BANDS.top.rows.length:Infinity;
+  if(cfg.over)for(const [k,to] of Object.entries(cfg.over)){const cap=BANDS[k].cols.length*BANDS[k].rows.length;if(g[k].length>cap){g[k].sort((p,q)=>Math.abs(q.a[1]-BANDS[k].rows[0])-Math.abs(p.a[1]-BANDS[k].rows[0]));while(g[k].length>cap)g[to].push(g[k].shift())}}
+  if(BANDS.top&&BANDS.bot&&g.top.length>capTop){g.top.sort((p,q)=>q.a[1]-p.a[1]);while(g.top.length>capTop)g.bot.push(g.top.shift())}
+  const out=[];
+  for(const key of Object.keys(BANDS)){
+    const B=BANDS[key], list=g[key];if(!list.length)continue;
+    list.sort((p,q)=>p.a[0]-q.a[0]);
+    const nc=B.cols.length, nr=B.rows.length;
+    // nº de columnas usadas: tantas como haga falta, repartidas por la franja
+    const k=Math.min(nc,list.length), per=Math.ceil(list.length/k);
+    const used=k===1?[Math.max(0,Math.min(nc-1,Math.floor((list[0].a[0]-B.cols[0])/(B.colW))))]:
+      Array.from({length:k},(_,j)=>Math.round(j*(nc-1)/(k-1)));
+    const items=[];
+    if(B.side){ /* franja lateral: cada texto en la fila más cercana a la altura de su matrícula, sin pisarse */
+      list.sort((p,q)=>p.a[1]-q.a[1]);
+      for(let c0=0;c0<list.length;c0+=nr){const grp=list.slice(c0,c0+nr),col=Math.min(nc-1,c0/nr);let prev=-1;
+        const idx=grp.map(n=>{let r=Math.round((n.a[1]-B.rows[0])/(B.rows[1]-B.rows[0]));r=Math.max(r,prev+1);prev=r;return r});
+        let nxt=nr;for(let i=idx.length-1;i>=0;i--){idx[i]=Math.min(idx[i],nxt-1);nxt=idx[i]}
+        grp.forEach((n,i)=>items.push({n,col,row:idx[i]}))}}
+    else
+    for(let j=0;j<k;j++){
+      const grp=list.slice(j*per,(j+1)*per);if(!grp.length)continue;
+      const cx=B.cols[used[j]];
+      // fila: arriba la flecha más vertical, abajo la más tumbada (así no se cruzan)
+      const steep=n=>{const dx=Math.abs(n.a[0]-(cx+B.colW/2)),dy=Math.abs(n.a[1]-B.rows[0]);return dy/(dx+1)};
+      grp.sort((p,q)=>key!=="top"?steep(q)-steep(p):steep(p)-steep(q));
+      // en la franja de arriba las flechas bajan: la fila de abajo, la más vertical
+      grp.forEach((n,r)=>items.push({n,col:used[j],row:key!=="top"?r:(nr-grp.length)+r}));
+    }
+    const fit=(t)=>{let fs=B.fs,tt=t;while(width(tt,fs)>B.colW-12&&fs>6.4)fs-=0.2;
+      while(width(tt,fs)>B.colW-12&&tt.length>6)tt=tt.slice(0,-2).trimEnd()+"…";return [tt,fs]};
+    const geom=()=>{const colMax={};
+      const pre=items.map(it=>{const [tt,fs]=fit(it.n.text),w=width(tt,fs);colMax[it.col]=Math.max(colMax[it.col]||0,w);return {it,tt,fs,w}});
+      // las flechas salen todas del mismo borde de la columna, para no pisar los textos de otras filas
+      return pre.map(({it,tt,fs,w})=>{const x=B.cols[it.col],y=B.rows[it.row],right=it.n.a[0]>=x+w/2;
+        const ex=x+colMax[it.col]+5;
+        return {it,tt,fs,x,y,w,right,ul:right?[x,ex]:[x-5,x+w],seg:[right?[ex,y+2.5]:[x-5,y+2.5],it.n.a]}})};
+    const crosses=G=>{let c=0;const wc=cfg.avoid?6:1;for(let i=0;i<G.length;i++)for(let j=i+1;j<G.length;j++)if(segCross(G[i].seg,G[j].seg))c+=wc;
+      /* cfg.avoid: además evita (con menos peso que un cruce) flechas que se pisan o que pasan pegadas a la matrícula de otra */
+      if(cfg.avoid){for(let i=0;i<G.length;i++){for(let j=i+1;j<G.length;j++)if(segRoza(G[i].seg,G[j].seg)||segRoza(G[j].seg,G[i].seg))c+=3;
+        for(let j=0;j<G.length;j++)if(j!==i&&ptSeg(G[j].it.n.a,G[i].seg[0],G[i].seg[1])<22)c++}}
+      return c};
+    // mejora: cambia de hueco (o a un hueco libre) mientras quiten cruces
+    const free=()=>{const occ=new Set(items.map(i=>i.col+","+i.row));const f=[];
+      B.cols.forEach((_,c)=>B.rows.forEach((_,r)=>{if(!occ.has(c+","+r))f.push([c,r])}));return f};
+    let cur=crosses(geom());
+    for(let it=0;it<80&&cur>0;it++){const noFree=!!B.side;let best=cur,mv=null;
+      for(let i=0;i<items.length;i++){
+        for(let j=i+1;j<items.length;j++){const A=items[i],Bb=items[j];
+          [A.col,Bb.col]=[Bb.col,A.col];[A.row,Bb.row]=[Bb.row,A.row];const v=crosses(geom());
+          [A.col,Bb.col]=[Bb.col,A.col];[A.row,Bb.row]=[Bb.row,A.row];if(v<best){best=v;mv=["s",i,j]}}
+        if(!noFree)for(const [c,r] of free()){const A=items[i],oc=A.col,or=A.row;A.col=c;A.row=r;const v=crosses(geom());
+          A.col=oc;A.row=or;if(v<best){best=v;mv=["m",i,c,r]}}}
+      if(!mv)break;
+      if(mv[0]==="s"){const A=items[mv[1]],Bb=items[mv[2]];[A.col,Bb.col]=[Bb.col,A.col];[A.row,Bb.row]=[Bb.row,A.row]}
+      else{items[mv[1]].col=mv[2];items[mv[1]].row=mv[3]}
+      cur=best}
+    geom().forEach(o=>out.push({code:o.it.n.code,text:o.tt,x:o.x,y:o.y,fs:o.fs,ul:o.ul,from:o.seg[0],to:o.it.n.a}));
+  }
+  return out;
+}
+
+
+
+/* ===== Textos junto a la cinta, con flecha recta (Despiece) ===== */
+function layoutNear(notes,width,cfg){
+  const N=cfg.nearCfg,out=[],TB=[],SG=[];
+  const hit=(a,b)=>!(a[2]<b[0]||b[2]<a[0]||a[3]<b[1]||b[3]<a[1]);
+  const inRect=(p,q,r)=>{for(let k=0;k<=40;k++){const t=k/40,x=p[0]+(q[0]-p[0])*t,y=p[1]+(q[1]-p[1])*t;if(r[0]<x&&x<r[2]&&r[1]<y&&y<r[3])return true}return false};
+  const ccw=(a,b,c)=>(c[1]-a[1])*(b[0]-a[0])>(b[1]-a[1])*(c[0]-a[0]);
+  const segx=(a,b,c,d)=>ccw(a,c,d)!==ccw(b,c,d)&&ccw(a,b,c)!==ccw(a,b,d);
+  const tipOf=(sx,sy,px,py,ob)=>{const dx=px-sx,dy=py-sy,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,g=1.4;let t=0;
+    if(ob){const B=[ob[0]-g,ob[1]-g,ob[2]+g,ob[3]+g];while(t<L&&px-ux*t>B[0]&&px-ux*t<B[2]&&py-uy*t>B[1]&&py-uy*t<B[3])t+=0.2}else t=6.5;
+    return [px-ux*t,py-uy*t]};
+  const ord=notes.map((n,i)=>({n,i,d:N.dens[n.code]!=null?N.dens[n.code]:999})).sort((p,q)=>p.d-q.d||p.i-q.i);
+  for(const {n} of ord){
+    const a=n.at||cfg.pos[n.code];if(!a)continue;
+    const [px,py]=a;
+    if(cfg.slots&&(!n.at||(cfg.dup&&cfg.dup[n.code]))){const CDs=n.code.replace(/\s*\(.*\)/,"").replace(/\s/g,"");
+      let sl=null,bd=1e9;for(const s of cfg.slots){if(s[0]!==CDs)continue;const d=Math.hypot(s[1]-px,s[2]-py);if(d<bd){bd=d;sl=s}}
+      if(sl&&bd<6){const [,,,qx,qy,sw,np,sx,sy,ex,ey]=sl;const T0s=CDs+": "+n.text,T2s=n.text.replace(/ de ~/," ~");
+        let tx=np?T2s:T0s,fs=5.6;while(width(tx,fs)>sw-2&&fs>3.8)fs-=0.2;
+        while(width(tx,fs)>sw-2&&tx.length>4)tx=tx.slice(0,-2).trimEnd()+"…";
+        const w=width(tx,fs),h=fs*1.35,hz=Math.abs(sy-ey)<0.5,lo=qx-sw/2,hi=qx+sw/2;
+        let x0=qx-w/2;if(hz){x0=px<qx?sx+1:sx-1-w}else{x0=Math.min(Math.max(px-w/2,lo+1),hi-1-w)}
+        const bx=[x0,qy-h/2-1.6,x0+w,qy+h/2+0.8];
+        TB.push(bx);SG.push([[sx,sy],[ex,ey]]);out.push({code:n.code,text:tx,x:x0,y:qy+0.36*fs,fs,ul:null,from:[sx,sy],to:[ex,ey],near:true,bx,seg:[[sx,sy],[ex,ey]]});continue}}
+    let ob=N.own[n.code];if(cfg.dup&&cfg.dup[n.code]&&Math.abs(px-cfg.dup[n.code].der[0])<3)ob=N.own[n.code+"|der"]||ob;
+    const own=ob?N.arrows.filter(r=>Math.abs((r[0]+r[2])/2-(ob[0]+ob[2])/2)<2&&Math.abs((r[1]+r[3])/2-(ob[1]+ob[3])/2)<2):[];
+    const dir=(cfg.dirs||{})[n.code];
+    const CD=n.code.replace(/\s*\(.*\)/,"").replace(/\s/g,""),T0=CD+": "+n.text,T1=CD+": "+n.text.replace(/ de ~/,"  ~").replace(/ de /g," ").replace(/\s+~/," ~"),T2=n.text.replace(/ de ~/," ~");
+    const tries=[];for(const fs of [6,5.2,4.6])for(const t of [T0,T1,T2])tries.push([fs,t,[0]]);tries.push([4.2,T2,[0]]);tries.push([4.2,T2,[2]]);
+    const T0b=T0;
+    let placed=null;
+    for(const [fs,tx,passes] of tries){
+      const w=width(tx,fs),h=fs*1.35;
+      for(const pass of passes){
+        for(let r=16;r<=364&&!placed;r+=3.2){
+          const C=[];
+          for(let sh=-w/2+5.7;sh<=w/2-5.3;sh+=3.2){C.push([px+sh,py-r,"v"]);C.push([px+sh,py+r,"v"])}
+          for(const sh of [-2.4,-1.2,0,1.2,2.4]){if(Math.abs(sh)<h/2-1.2){C.push([px-r-w/2,py+sh,"h"]);C.push([px+r+w/2,py+sh,"h"])}}
+          
+          let Cf=C;if(dir==="below")Cf=C.filter(c=>c[2]==="v"&&c[1]>py);else if(dir==="above")Cf=C.filter(c=>c[2]==="v"&&c[1]<py);
+          Cf.sort((p,q)=>(Math.abs(p[0]-px)*0.15+Math.abs(p[1]-py))-(Math.abs(q[0]-px)*0.15+Math.abs(q[1]-py)));
+          for(const [qx,qy,md] of Cf){
+            const bx=[qx-w/2,qy-h/2-1.6,qx+w/2,qy+h/2+0.8];
+            if(bx[0]<N.bounds[0]||bx[2]>N.bounds[2]||bx[1]<N.bounds[1]||bx[3]>N.bounds[3])continue;
+            if((px>N.divider&&bx[0]<N.divider)||(px<N.divider&&bx[2]>N.divider))continue;
+            if(N.arrows.some(r=>hit(bx,r))||N.chips.some(r=>hit(bx,r))||TB.some(r=>hit(bx,r))||N.heads.some(r=>hit(bx,r)))continue;
+            if(N.bandY.some(y=>bx[1]-0.8<y&&y<bx[3]+0.8))continue;
+            let sx,sy;
+            if(md==="d"){sx=Math.min(Math.max(px,bx[0]+4),bx[2]-4);sy=py<qy?bx[1]-0.4:bx[3]+0.4}
+            else if(md==="v"){sx=px;sy=py<qy?bx[1]-0.4:bx[3]+0.4}
+            else{sy=py;sx=px<qx?bx[0]-0.4:bx[2]+0.4}
+            const dx=px-sx,dy=py-sy,L=Math.hypot(dx,dy)||1;
+            if(L<(md==="d"?16:12))continue;
+            const [ex,ey]=tipOf(sx,sy,px,py,ob);if(Math.hypot(ex-sx,ey-sy)<8)continue;
+            if(pass<2){
+              if(N.arrows.some(r=>!own.includes(r)&&inRect([sx,sy],[ex,ey],r)))continue;
+              if(N.chips.some(r=>inRect([sx,sy],[ex,ey],r))||TB.some(r=>inRect([sx,sy],[ex,ey],r)))continue;
+              if(SG.some(g=>segx([sx,sy],[ex,ey],g[0],g[1])||inRect(g[0],g[1],bx)))continue}
+            placed={code:n.code,text:tx,x:qx-w/2,y:qy+0.36*fs,fs,ul:null,from:[sx,sy],to:[ex,ey],near:true,bx,seg:[[sx,sy],[ex,ey]]};break}
+        }
+        if(placed)break}
+      if(placed)break}
+    if(!placed){const fs=4.2,w=width(T2,fs);placed={code:n.code,text:T2,x:px+8,y:py-8,fs,ul:null,from:[px+8,py-6],to:tipOf(px+8,py-6,px,py,ob),near:true,bx:[px+8,py-14,px+8+w,py-6],seg:[[px+8,py-6],a]}}
+    TB.push(placed.bx);SG.push(placed.seg);out.push(placed)}
+  return out}
+
+/* ===== Generar el PDF del plano relleno ===== */
+const AZUL=[0.11,0.31,0.85], GRIS=[0.33,0.33,0.33], ROJO=[0.82,0.10,0.10];
+function wa(s){return String(s).replace(/[^\x20-\x7E -ÿ·—–~…’‘“”€]/g,"")}
+function b64ToBytes(u){const b=atob(u.split(",")[1]);const a=new Uint8Array(b.length);for(let i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a}
+async function genPlano(){
+  const {PDFDocument,StandardFonts,rgb}=PDFLib;
+  const src=await (await fetch(CFG.pdf)).arrayBuffer();
+  const doc=await PDFDocument.load(src);
+  const page=doc.getPages()[0], W=page.getWidth(), H=page.getHeight(), DHp=CFG.DH||PL_DH, K=H/DHp, DW=W/K;
+  const F=await doc.embedFont(StandardFonts.HelveticaBold), FR=await doc.embedFont(StandardFonts.Helvetica);
+  const X=x=>x*K, Y=y=>(DHp-y)*K;
+  const txtAt=(t,x,y,fs,font,col)=>page.drawText(wa(t),{x:X(x),y:Y(y),size:fs*K,font,color:rgb(...col)});
+  // cabecera
+  [S.fecha,S.ini,S.fin,S.nombre||NOMBRE,S.tq||""].forEach((v,i)=>{const h=CFG.hdr||{x:145,y0:25,pitch:15.5,fs:9};if(v)txtAt(v,h.x,h.y0+i*h.pitch,h.fs,F,AZUL)});
+  // listado
+  const nombres={...Object.fromEntries(ITEMS),...(CFG.lnames||{})};
+  if(CFG.lines)CFG.lines.forEach(([cs,lx,ly,rm])=>{
+    const parts=cs.map(c=>{const r=S.res[c];if(!r||!(isInc(r)||r.t==="ok"))return "";const t=txt(r,1);const m=c.match(/\(([^)]*)\)/);return (cs.length>1&&m?m[1]+": ":"")+t}).filter(Boolean);
+    if(!parts.length)return;let fs=CFG.lfs,t=wa(parts.join(" · "));
+    while(F.widthOfTextAtSize(t,fs)>(rm||CFG.lroom)&&fs>3.6)fs-=0.2;
+    while(F.widthOfTextAtSize(t,fs)>(rm||CFG.lroom)&&t.length>4)t=t.slice(0,-2)+"…";
+    txtAt(t,lx,ly,fs,F,AZUL)});
+  CFG.list.forEach((c,i)=>{
+    const y=(CFG.y0||58)+i*CFG.pitch, raya=RAYA.includes(c);
+    const v=raya?"—":(S.res[c]?(isInc(S.res[c])||S.res[c].t==="ok"?txt(S.res[c]):""):"");
+    if(!v)return;
+    const nameEnd=CFG.LX+66+(nombres[c]?FR.widthOfTextAtSize(wa(nombres[c]),6.6):60);
+    const room=DW-22-nameEnd-6;let fs=6.6,t=wa(v);
+    while(F.widthOfTextAtSize(t,fs)>room&&fs>4.6)fs-=0.2;
+    while(F.widthOfTextAtSize(t,fs)>room&&t.length>4)t=t.slice(0,-2)+"…";
+    txtAt(t,DW-22-F.widthOfTextAtSize(t,fs),y+1.5,fs,F,raya?GRIS:AZUL);
+  });
+  // textos con flecha en el dibujo
+  const notas=ITEMS.filter(([c])=>isInc(S.res[c])).flatMap(([c])=>{const r=S.res[c],d=CFG.dup&&CFG.dup[c];
+    if(r.pts&&CFG.vias)return r.pts.map(p=>{const pl=CFG.vias[c],a=p.j&&CFG.pos[p.j],at=a?cercano(pl,a):cercano(pl,CFG.pos[c]);
+      return {code:c,text:wa((NOMLIN[c]||c)+": "+ptxt(p).replace(/ junto a .*$/,"")),at}});
+    if(r.pts&&CFG.lineY)return r.pts.map(p=>{let at;const a=p.j&&CFG.pos[p.j];
+      if(a){const tr=CFG.tramos.find(t=>a[1]>=t[0]&&a[1]<t[1])||CFG.tramos[0];at=[Math.max(90,Math.min(990,a[0])),tr[2]+CFG.lineY[c]]}
+      return {code:c,text:wa((NOMLIN[c]||c)+": "+ptxt(p).replace(/ junto a .*$/,"")),at}});
+    return [{code:c,text:wa(txt(r,1)),at:d&&r.lado?d[r.lado]:undefined}]});
+  // otras incidencias: recuadro azul a la derecha, debajo del listado; con flecha solo si se dijo junto a qué
+  const otras=S.otras||[];
+  otras.forEach((o,i)=>{const a=o.j&&CFG.pos[o.j];if(a)notas.push({code:o.j,text:wa(CFG.otrasBox?"Otra: "+o.t:"Otra "+(i+1)),at:[a[0],a[1]+6*notas.filter(n=>n.code===o.j).length]})});
+  if(otras.length&&CFG.otrasBox){
+    const B=CFG.otrasBox, maxW=B.w;
+    const wrap=(t,fs)=>{const out=[];let cur="";for(const w of wa(t).split(/\s+/)){const nx=cur?cur+" "+w:w;
+      if(FR.widthOfTextAtSize(nx,fs)>maxW&&cur){out.push(cur);cur=w}else cur=nx}if(cur)out.push(cur);return out};
+    let fs=6.6,lines=[];
+    for(;;){lines=otras.flatMap(o=>wrap("- "+o.t+(o.j?" (junto a "+o.j+")":""),fs));
+      const room=Math.floor((B.bottom-(B.y0+9+0.8*fs))/(fs+2.2))+1;
+      if(lines.length<=room||fs<=4.8)break;fs-=0.2}
+    const room=Math.max(1,Math.floor((B.bottom-(B.y0+9+0.8*fs))/(fs+2.2))+1);
+    if(lines.length>room){lines=lines.slice(0,room);lines[room-1]=lines[room-1].replace(/\s*\S{0,3}$/,"")+"…"}
+    txtAt("OTRAS INCIDENCIAS",B.x,B.y0,7.2,F,AZUL);
+    page.drawLine({start:{x:X(B.x),y:Y(B.y0+2.5)},end:{x:X(B.x+B.w),y:Y(B.y0+2.5)},thickness:0.7*K,color:rgb(...AZUL)});
+    lines.forEach((l,i)=>txtAt(l,B.x,B.y0+9+fs+i*(fs+2.2)-fs*0.2,fs,FR,AZUL));
+  }
+  const L=CFG.near?layoutNear(notas,(t,fs)=>F.widthOfTextAtSize(t,fs),CFG):layoutNotas(notas,(t,fs)=>F.widthOfTextAtSize(t,fs),CFG);
+  L.forEach(o=>{
+    txtAt(o.text,o.x,o.y,o.fs,F,AZUL);
+    if(o.ul)page.drawLine({start:{x:X(o.ul[0]),y:Y(o.y+2.5)},end:{x:X(o.ul[1]),y:Y(o.y+2.5)},thickness:0.8*K,color:rgb(...AZUL)});
+    const [x1,y1]=o.from,[ax,ay]=o.to, dx=ax-x1, dy=ay-y1, d=Math.hypot(dx,dy)||1, ux=dx/d, uy=dy/d;
+    const ex=o.near?ax:ax-ux*7, ey=o.near?ay:ay-uy*7;
+    const FL=o.near?ROJO:AZUL;
+    page.drawLine({start:{x:X(x1),y:Y(y1)},end:{x:X(ex),y:Y(ey)},thickness:1.1*K,color:rgb(...FL)});
+    const hx=ex-ux*7, hy=ey-uy*7, px=-uy*3.5, py=ux*3.5;
+    page.drawSvgPath(`M ${X(ex)} ${X(ey)} L ${X(hx+px)} ${X(hy+py)} L ${X(hx-px)} ${X(hy-py)} Z`,{x:0,y:H,color:rgb(...FL)});
+  });
+  // páginas de otras incidencias: lista numerada con sus fotos debajo
+  {const k0=W/1190.55,mx=40*k0;let pgo=null,yo=0;const oi=S.otras||[];
+   const nuevaO=()=>{pgo=doc.addPage([W,H]);pgo.drawText(wa(`Otras incidencias · ${SALA} · ${S.fecha}`),{x:mx,y:H-50*k0,size:18*k0,font:F,color:rgb(0.12,0.16,0.2)});yo=H-85*k0};
+   for(let i=0;i<oi.length;i++){const o=oi[i],fo=fotosDe("OTRA@"+o.id);
+     const tx=wa(`${i+1}. ${o.t}${o.j?" (junto a "+o.j+")":""}`),lines=[];let cur="";
+     for(const w of tx.split(/\s+/)){const nx=cur?cur+" "+w:w;if(FR.widthOfTextAtSize(nx,14*k0)>W-2*mx&&cur){lines.push(cur);cur=w}else cur=nx}if(cur)lines.push(cur);
+     const th=lines.length*20*k0,ph=fo.length?260*k0:0;
+     if(!pgo||yo-(th+ph+30*k0)<40*k0)nuevaO();
+     lines.forEach((l,q)=>pgo.drawText(l,{x:mx,y:yo-14*k0-q*20*k0,size:14*k0,font:F,color:rgb(...AZUL)}));
+     yo-=th+8*k0;
+     if(fo.length){let xo=mx;for(const f of fo){const img=await doc.embedJpg(b64ToBytes(f.url)),sc=Math.min(460*k0/img.width,250*k0/img.height),iw=img.width*sc,ih=img.height*sc;
+       pgo.drawImage(img,{x:xo,y:yo-ih,width:iw,height:ih});xo+=iw+20*k0}yo-=ph}
+     yo-=24*k0}}
+  // páginas de fotos (4 por hoja)
+  const fotos=ITEMS.filter(([c])=>isInc(S.res[c])).flatMap(([c])=>fotosItem(c));
+  const kk=W/1190.55;
+  for(let k=0;k<fotos.length;k+=4){
+    const pg=doc.addPage([W,H]);
+    pg.drawText(wa(`Fotos de incidencias · ${SALA} · ${S.fecha}`),{x:30*kk,y:H-50*kk,size:18*kk,font:F,color:rgb(0.12,0.16,0.2)});
+    const cw=(W-90*kk)/2, ch=(H-130*kk)/2;
+    for(let j=0;j<4&&k+j<fotos.length;j++){
+      const {c,slot,url,lab}=fotos[k+j], img=await doc.embedJpg(b64ToBytes(url));
+      const cx=30*kk+(j%2)*(cw+30*kk), cy=H-80*kk-(Math.floor(j/2)+1)*ch-Math.floor(j/2)*10*kk;
+      const capH=36*kk, sc=Math.min(cw/img.width,(ch-capH)/img.height), iw=img.width*sc, ih=img.height*sc;
+      pg.drawImage(img,{x:cx+(cw-iw)/2,y:cy+capH+(ch-capH-ih)/2,width:iw,height:ih});
+      const cap=wa(lab);let fz=17*kk;while(F.widthOfTextAtSize(cap,fz)>cw&&fz>9*kk)fz-=kk;
+      pg.drawText(cap,{x:cx,y:cy+14*kk,size:fz,font:F,color:rgb(...AZUL)});
+    }
+  }
+  return await doc.save();
+}
+async function bajarPlano(b){const t=b.textContent;b.textContent="Generando…";
+  try{const bytes=await genPlano();b.textContent=t;await bajar(`${fechaISO()}_${SALA_CORTO}_plano.pdf`,new Blob([bytes],{type:"application/pdf"}),b)}
+  catch(e){b.textContent="Error al generar el plano";console.error(e);setTimeout(()=>b.textContent=t,2500)}}
+
+try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}
+setSala(S&&S.sala||"china");render();cargarFotos().then(render);
+</script>
+
+</body></html>
