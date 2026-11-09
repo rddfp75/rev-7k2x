@@ -200,7 +200,7 @@ const VI={pc:PCLIST.map(idxK)},VT={pc:"Plan de choque"};
 DSP_IDS.forEach(id=>{VI[id]=SALAS[id].items.map(([k])=>idxK(k));VT[id]=SALAS[id].titulo.replace("Despiece · ","");delete SALAS[id]});
 Object.assign(SALAS.despiece,{sub:"Plan de choque, líneas y libre",nota:"179 matrículas · 185 elementos",items:ALLITEMS,raya:[],otras:true});
 VT.libre="Libre";
-const vidx=()=>{const v=S&&S.vista;return v&&VI[v]?VI[v]:ALLITEMS.map((x,i)=>i)};
+const vidx=()=>{const v=S&&S.vista;return SALA_ID==='despiece'&&v&&VI[v]?VI[v]:ITEMS.map((x,i)=>i)};
 const esLibre=()=>!!(SALAS[SALA_ID]&&SALAS[SALA_ID].libre)||(S&&S.vista==="libre");
 const pcDe=c=>PCEXP.has(c);
 let SALA_ID,SALA,SALA_CORTO,TITULO,ITEMS,RAYA,RAYATXT,CFG;
